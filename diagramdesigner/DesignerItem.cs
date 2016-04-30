@@ -157,7 +157,7 @@ namespace DiagramDesigner
                     case "StartTBP": this.BoundLogicItem = new StartTBP(Guid.NewGuid(), this.id); break;
                     case "EndTBP": this.BoundLogicItem = new EndTBP(Guid.NewGuid(), this.id); break;
                     case "OperationTBP": this.BoundLogicItem = new OperationTBP(Guid.NewGuid(), this.id); break;
-                    case "ErrorTBP": this.BoundLogicItem = new Error(Guid.NewGuid(), this.id); break;
+                    case "ErrorTBP": this.BoundLogicItem = new GrossError(Guid.NewGuid(), this.id); break;
                 }
 
 

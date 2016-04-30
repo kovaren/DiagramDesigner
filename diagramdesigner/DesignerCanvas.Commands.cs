@@ -232,72 +232,42 @@ namespace DiagramDesigner
             bool branchHasErrors = false;
             if (operationPool.Count != 0)
             {
-                //add dmp under root
+                //add a dmp under the root
                 DesignerItem dmp = this.AttachDMP(root, operationPool);
-
-                #region
-                //foreach (DesignerItem item in operationPool)
-                //{
-                //    DesignerItem operation = this.CreateItem(Canvas.GetTop(dmp) + 140, this.GlobalOffsetX);
-
-                //    operation.Content = this.GetOperationTBPContent();
-                //    operation.BoundLogicItem = new OperationTBP(item.BoundLogicItem.ID, operation.ID);
-
-                //    //move parameters from RBP operation to the created TBP
-                //    operation.BoundLogicItem.Name = item.BoundLogicItem.Name;
-                //    operation.dispName = operation.BoundLogicItem.Name;
-
-                //    this.Children.Add(operation);
-                //    SetConnectorDecoratorTemplate(operation);
-                //    this.DrawConnection(dmp.ID, operation.ID);
-
-                //    //remove operation from pool
-                //    List<DesignerItem> newPool = operationPool.Where(p => p.ID != item.ID).ToList();
-
-                //    //recursive call
-                //    this.DrawBranch(operation, newPool);
-                //}
-                #endregion
-                //var tempRoot = root;
-                //if (operationPool.Count > 0)
-                //    tempRoot = operationPool[0];
-                operationPool.RemoveAt(0);
-                    DesignerItem operation = this.CreateItem(Canvas.GetTop(dmp) + 140, this.GlobalOffsetX);
-
-                    operation.Content = this.GetOperationTBPContent();
-                    operation.BoundLogicItem = new OperationTBP(root.BoundLogicItem.ID, operation.ID);
-
-                    //move parameters from RBP operation to the created TBP
-                    operation.BoundLogicItem.Name = root.BoundLogicItem.Name;
-                    operation.dispName = operation.BoundLogicItem.Name;
-
-                    this.Children.Add(operation);
-                    SetConnectorDecoratorTemplate(operation);
-                    this.DrawConnection(dmp.ID, operation.ID);
-
-                    if (operationPool.Count == 0)
-                        branchHasErrors = true;
-                    for (int i = 0; i < operationPool.Count; i++)
-                    {
-                        DesignerItem error = this.CreateItem(Canvas.GetTop(dmp) + 140, this.GlobalOffsetX + 140 * (i + 1));
-                        error.Content = this.GetErrorContent();
-                        error.BoundLogicItem = new Error(root.BoundLogicItem.ID, error.ID);
-
-                        this.Children.Add(error);
-                        SetConnectorDecoratorTemplate(error);
-                        this.DrawConnection(dmp.ID, error.ID);
-                        AttachEndTBP(error);
-                        branchHasErrors = true;
-                    }
-
-                    //remove operation from pool
-                    //List<DesignerItem> newPool = operationPool.Where(p => p.ID != root.ID).ToList();
-                    //operationPool.RemoveAt(0);
-                    var newPool = operationPool;
-                    //recursive call
-                    //operation = tempRoot;
-                    this.DrawBranch(operation, newPool);
                 
+                //add the local root
+                DesignerItem operation = this.CreateItem(Canvas.GetTop(dmp) + 140, this.GlobalOffsetX);
+
+                operation.Content = this.GetOperationTBPContent();
+                operation.BoundLogicItem = new OperationTBP(operationPool[0].BoundLogicItem.ID, operation.ID);
+
+                //move parameters from RBP operation to the created TBP
+                operation.BoundLogicItem.Name = operationPool[0].BoundLogicItem.Name;
+                operation.dispName = operation.BoundLogicItem.Name;
+
+                this.Children.Add(operation);
+                SetConnectorDecoratorTemplate(operation);
+                this.DrawConnection(dmp.ID, operation.ID);
+
+                operationPool.RemoveAt(0);
+                if (operationPool.Count == 0)
+                    branchHasErrors = true;
+                for (int i = 0; i < operationPool.Count; i++)
+                {
+                    DesignerItem error = this.CreateItem(Canvas.GetTop(dmp) + 140, this.GlobalOffsetX + 140 * (i + 1));
+                    error.Content = this.GetErrorContent();
+                    error.BoundLogicItem = new GrossError(Guid.NewGuid(), error.ID);
+
+                    this.Children.Add(error);
+                    SetConnectorDecoratorTemplate(error);
+                    this.DrawConnection(dmp.ID, error.ID);
+                    AttachEndTBP(error);
+                    branchHasErrors = true;
+                }
+
+                //recursive call
+                this.DrawBranch(operation, operationPool);
+
             }
             //add end if this operation is a leaf of the tree
             if (!branchHasErrors)
