@@ -1,0 +1,29 @@
+﻿<Window x:Class="DiagramDesigner.Window3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window3" Height="300" Width="300">
+    <Grid>
+        <Rectangle Fill="#FFD85E59" HorizontalAlignment="Left" Height="10" Margin="189,142,0,0" Stroke="#FFD85E59" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" RadiusY="4.846" RadiusX="4.846">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="45.646"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="#FFD85E59" HorizontalAlignment="Left" Height="10" Margin="189,142,0,0" Stroke="#FFD85E59" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" RadiusY="4.846" RadiusX="4.846">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="135.696"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Path Data="M5.4793308,0.5 C6.7537005,0.5 8.0281966,0.98624837 9.0006936,1.9587454 L35.477494,28.435536 61.954293,1.9587454 C63.899285,0.013751694 67.052281,0.013751694 68.996266,1.9587454 70.941227,3.9027313 70.941227,7.0557085 68.996266,9.0006868 L42.519459,35.477499 68.996266,61.954298 C70.941227,63.899294 70.941227,67.052286 68.996266,68.996271 67.051274,70.941233 63.899285,70.941233 61.954293,68.996271 L35.477494,42.519465 9.0006936,68.996271 C7.0557005,70.941233 3.9027083,70.941233 1.958722,68.996271 0.013759323,67.052286 0.013759323,63.899294 1.958722,61.954298 L28.435528,35.477499 1.958722,9.0006868 C0.013759323,7.0557085 0.013759323,3.9037231 1.958722,1.9587454 2.9307153,0.98624837 4.2049596,0.5 5.4793308,0.5 z" Fill="#FFD85E59" Margin="80.522,116.522,140.523,81.523" Stretch="Fill" Stroke="#FFD85E59" StrokeLineJoin="Round" />
+
+    </Grid>
+</Window>

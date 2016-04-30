@@ -1,0 +1,95 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:DiagramDesigner"
+                    xmlns:c="clr-namespace:DiagramDesigner.Controls">
+
+    <!--BEGIN OF Operation-->
+    <Style x:Key="Operation" TargetType="Path">
+        <Setter Property="Data" Value="M 0,0 H 60 V40 H 0 Z"/>
+        <Setter Property="Fill" Value="Moccasin"/>
+        <Setter Property="Stretch" Value="Fill"/>
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Tag" Value="Operation"/>
+       
+    </Style>
+
+    <Style x:Key="Operation_DragThumb" TargetType="Path" BasedOn="{StaticResource Operation}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+
+    </Style>
+    <!--END OF Operation-->
+
+
+    <!--BEGIN OF Start-->
+    <Style x:Key="Start" TargetType="Path">
+
+        <Setter Property="Data" Value="M 0,0 L 100,0 L 50,-100 L 0,0 Z"/>
+        
+        <Setter Property="Fill" Value="YellowGreen"/>
+        <Setter Property="Stretch" Value="Fill"/>
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Tag" Value="Start"/>
+
+
+    </Style>
+
+    <Style x:Key="Start_DragThumb" TargetType="Path" BasedOn="{StaticResource Start}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+    </Style>
+    <!--END OF Start-->
+
+
+    <!--BEGIN OF End-->
+    <Style x:Key="End" TargetType="Path">
+
+        <Setter Property="Data" Value="M 0,0 L 100,0 L 50,100 L 0,0 Z"/>
+        <Setter Property="Fill" Value="OliveDrab"/>
+        <Setter Property="Stretch" Value="Fill"/>
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Tag" Value="End"/>
+
+
+    </Style>
+
+    <Style x:Key="End_DragThumb" TargetType="Path" BasedOn="{StaticResource End}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+    </Style>
+    <!--END OF End-->
+
+    <s:Toolbox x:Key="RBPStencils" ItemSize="60,60">
+    <ItemsControl.Items>
+               <Path Style="{StaticResource Operation}" ToolTip="Operation">
+
+                    <s:DesignerItem.DragThumbTemplate>
+                        <ControlTemplate>
+                            <Path Style="{StaticResource Operation_DragThumb}"/>
+                        </ControlTemplate>
+                    </s:DesignerItem.DragThumbTemplate>
+                </Path>
+          
+
+            
+                <Path Style="{StaticResource Start}" ToolTip="Start">
+
+                    <s:DesignerItem.DragThumbTemplate>
+                        <ControlTemplate>
+                            <Path Style="{StaticResource Start_DragThumb}"/>
+                        </ControlTemplate>
+                    </s:DesignerItem.DragThumbTemplate>
+                </Path>
+
+            <Path Style="{StaticResource End}" ToolTip="End">
+
+                <s:DesignerItem.DragThumbTemplate>
+                    <ControlTemplate>
+                        <Path Style="{StaticResource End_DragThumb}"/>
+                    </ControlTemplate>
+                </s:DesignerItem.DragThumbTemplate>
+            </Path>
+
+        </ItemsControl.Items>
+  </s:Toolbox>
+</ResourceDictionary>
