@@ -9,7 +9,7 @@
 
     <ToolBar x:Key="MyToolbar" Height="120">
         <!--File-->
-        <GroupBox Header="File" Style="{StaticResource ToolbarGroup}" Margin="5,3,3,3">
+        <GroupBox Header="File" Style="{StaticResource ToolbarGroup}" Margin="5,3,3,0">
             <StackPanel Grid.Row="1" Orientation="Horizontal">
                 <Button Margin="3" Width="55" Style="{StaticResource ToolBarButtonBaseStyle}"
                         HorizontalContentAlignment="Center"
@@ -77,7 +77,7 @@
         </GroupBox>
 
         <!--Edit-->
-        <GroupBox Header="Edit" Style="{StaticResource ToolbarGroup}" Margin="3">
+        <GroupBox Header="Edit" Style="{StaticResource ToolbarGroup}" Margin="3,3,3,0">
             <StackPanel Grid.Row="1" Orientation="Horizontal">
                 <Button Margin="3" Width="55"
                         Style="{StaticResource ToolBarButtonBaseStyle}"
@@ -145,7 +145,7 @@
         </GroupBox>
 
         <!--Alignment-->
-        <GroupBox Header="Alignment" Style="{StaticResource ToolbarGroup}" Margin="3">
+        <GroupBox Header="Alignment" Style="{StaticResource ToolbarGroup}" Margin="3,3,3,0">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -241,7 +241,7 @@
         </GroupBox>
 
         <!--Arrange-->
-        <GroupBox Header="Arrange" Style="{StaticResource ToolbarGroup}" Margin="3">
+        <GroupBox Header="Arrange" Style="{StaticResource ToolbarGroup}" Margin="3,3,3,0">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -352,23 +352,23 @@
         </GroupBox>
 
         <!--Generate-->
-        <GroupBox Header="Generate" Style="{StaticResource ToolbarGroup}" Margin="3">
+        <GroupBox Header="Generate" Style="{StaticResource ToolbarGroup}" Margin="3,3,3,0">
             <StackPanel Orientation="Horizontal">
-            <Button Margin="3" Width="55" Style="{StaticResource ToolBarButtonBaseStyle}"
+                <Button Margin="3" Width="55" Style="{StaticResource ToolBarButtonBaseStyle}"
                         HorizontalContentAlignment="Center"
                         Command ="{ x:Static s:DesignerCanvas.GenerateTBP}"
                         CommandTarget="{Binding ElementName=MyDesigner}">
-                <Button.Content>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="4*"/>
-                            <RowDefinition Height="1*"/>
-                        </Grid.RowDefinitions>
-                        <Image Source="Images/GenerateCog.png" Width="45" Margin="0,0,0,5"/>
-                        <TextBlock Grid.Row="1" Text="TBP" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
-                    </Grid>
-                </Button.Content>
-            </Button>
+                    <Button.Content>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="Images/GenerateCog.png" Width="45" Margin="0,0,0,5"/>
+                            <TextBlock Grid.Row="1" Text="TBP" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
 
                 <Button Margin="3" Width="55" Style="{StaticResource ToolBarButtonBaseStyle}"
                         HorizontalContentAlignment="Center"
@@ -385,7 +385,6 @@
                         </Grid>
                     </Button.Content>
                 </Button>
-
             </StackPanel>
         </GroupBox>
     </ToolBar>

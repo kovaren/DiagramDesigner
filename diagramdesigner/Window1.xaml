@@ -20,7 +20,13 @@
         <s:AttributePanel x:Key="AttributePanelDataSource"/>
     </Window.Resources>
 
-    <Grid Margin="10">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                <GradientStop Color="WhiteSmoke" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -28,7 +34,7 @@
 
         <ContentControl Content="{StaticResource MyToolbar}"/>
 
-        <Grid Grid.Row="1" Margin="0,10,0,0">
+        <Grid Grid.Row="1" Margin="0,5,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition/>
@@ -36,8 +42,7 @@
             </Grid.ColumnDefinitions>
             <!-- Toolbox -->
             <StackPanel Grid.Column="0" Margin="0,0,5,0">
-
-                <Expander Name="RBPtools" Header="RBP Elements" Content="{StaticResource RBPStencils}" IsExpanded="True"/>
+                <Expander Name="RBPtools" Header="RBP Elements" Content="{StaticResource RBPStencils}" IsExpanded="True" HorizontalAlignment="Right" Width="195"/>
                 <Expander Name="TBPtools" Header="TBP Elements" Content="{StaticResource TBPStencils}" IsExpanded="False" IsEnabled="False" />
             </StackPanel>
             <!-- GridSplitter -->
@@ -57,8 +62,7 @@
                         </ScrollViewer>
                     </DataTemplate>
                 </TabControl.Resources>
-               
-                <TabItem Header="Model">
+                <TabItem Header="Real Business Process">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto"
 					VerticalScrollBarVisibility="Auto">
                         <s:DesignerCanvas Focusable="true" x:Name="MyDesigner"
