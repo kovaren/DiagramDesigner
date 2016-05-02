@@ -7,18 +7,16 @@ using System.Windows;
 
 namespace DiagramDesigner.LogicTBP
 {
-    public class OperationTBP:BaseLogic
+    public class OperationTBP : BaseLogic
     {
         public String MyProperty { get; set; }
 
-        public OperationTBP(Guid id, Guid designerID)
+        public OperationTBP(Guid id, Guid designerID, string name = "Operation")
         {
             this.ID= id;
             this.DesignerID= designerID;
-            this.Name = "NewOperationTBP";
+            this.Name = name;
             this.MyProperty = "Test";
         }
-
-
     }
 }

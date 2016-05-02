@@ -13,6 +13,8 @@ namespace DiagramDesigner
 {
     public partial class DesignerCanvas : Canvas
     {
+        int itemCounter = 0;
+
         private Point? rubberbandSelectionStartPoint = null;
 
         private SelectionService selectionService;
@@ -81,7 +83,9 @@ namespace DiagramDesigner
 
                 if (content != null)
                 {
-                    newItem = new DesignerItem(Guid.NewGuid(),dragObject.Class);
+                    itemCounter = this.Children.OfType<DesignerItem>().Where(x => x.Tag.ToString() == dragObject.Class).Count();
+
+                    newItem = new DesignerItem(Guid.NewGuid(),dragObject.Class, ++itemCounter);
                     newItem.Content = content;
 
                     Point position = e.GetPosition(this);
@@ -104,17 +108,12 @@ namespace DiagramDesigner
                     Canvas.SetZIndex(newItem, this.Children.Count);
                     this.Children.Add(newItem);              
                     
-                  
-                    
-
                     SetConnectorDecoratorTemplate(newItem);
 
                     //update selection
                     this.SelectionService.SelectItem(newItem);
                     newItem.Focus();
 
-
-                   
                 }
 
                 e.Handled = true;

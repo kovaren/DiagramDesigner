@@ -138,42 +138,34 @@ namespace DiagramDesigner
                 typeof(DesignerItem), new FrameworkPropertyMetadata(typeof(DesignerItem)));
         }
 
-
-        public DesignerItem(Guid id, String Class)
+        public DesignerItem(Guid id, String Class, int num)
         {
             this.id = id;
             this.Tag = Class;
             this.Loaded += new RoutedEventHandler(DesignerItem_Loaded);
             this.MouseDoubleClick += DesignerItem_MouseDoubleClick;
 
-            if (Class != "")
+            switch (Class)
             {
-                switch (this.Tag.ToString())
-                {
-                    case "Operation": this.BoundLogicItem = new OperationRBP(Guid.NewGuid(), this.id); break;
-                    case "Start": this.BoundLogicItem = new Start(Guid.NewGuid(), this.id); break;
-                    case "End": this.BoundLogicItem = new End(Guid.NewGuid(), this.id); break;
-                    case "DMP": this.BoundLogicItem = new DmpTBP(Guid.NewGuid(), this.id); break;
-                    case "StartTBP": this.BoundLogicItem = new StartTBP(Guid.NewGuid(), this.id); break;
-                    case "EndTBP": this.BoundLogicItem = new EndTBP(Guid.NewGuid(), this.id); break;
-                    case "OperationTBP": this.BoundLogicItem = new OperationTBP(Guid.NewGuid(), this.id); break;
-                    case "ErrorTBP": this.BoundLogicItem = new GrossError(Guid.NewGuid(), this.id); break;
-                }
-
-
-                try
-                {
-                 
-                    this.dispName = BoundLogicItem.Name;
-
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
+                case "Operation": this.BoundLogicItem = new OperationRBP(Guid.NewGuid(), this.id, "Operation" + num); break;
+                case "Start": this.BoundLogicItem = new Start(Guid.NewGuid(), this.id); break;
+                case "End": this.BoundLogicItem = new End(Guid.NewGuid(), this.id); break;
+                case "DMP": this.BoundLogicItem = new DmpTBP(Guid.NewGuid(), this.id); break;
+                case "StartTBP": this.BoundLogicItem = new StartTBP(Guid.NewGuid(), this.id); break;
+                case "EndTBP": this.BoundLogicItem = new EndTBP(Guid.NewGuid(), this.id); break;
+                case "OperationTBP": this.BoundLogicItem = new OperationTBP(Guid.NewGuid(), this.id, "Operation" + num); break;
+                case "ErrorTBP": this.BoundLogicItem = new GrossError(Guid.NewGuid(), this.id); break;
+                default: return;
             }
 
+            try
+            {
+                this.dispName = BoundLogicItem.Name;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         void DesignerItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)

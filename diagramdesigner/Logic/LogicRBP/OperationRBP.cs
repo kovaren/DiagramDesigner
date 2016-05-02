@@ -15,11 +15,11 @@ namespace DiagramDesigner.LogicRBP
 
         public List<BaseResource> Resources { get { return resources; } set { resources = value; } }
 
-        public OperationRBP(Guid id, Guid designerID)
+        public OperationRBP(Guid id, Guid designerID, string name = "Operation")
         {
             this.ID= id;
             this.DesignerID= designerID;
-            this.Name = "NewOperation";
+            this.Name = name;
             this.MyProperty = "Test";
             this.Resources = new List<BaseResource>();
         }

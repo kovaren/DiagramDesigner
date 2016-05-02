@@ -190,6 +190,7 @@ namespace DiagramDesigner
             end.Content = this.GetEndTBPContent();
             end.BoundLogicItem = new EndTBP(Guid.NewGuid(), end.ID);
             end.dispName = end.BoundLogicItem.Name;
+            end.Tag = "EndTBP";
 
             this.Children.Add(end);
 
@@ -244,6 +245,7 @@ namespace DiagramDesigner
                 //move parameters from RBP operation to the created TBP
                 operation.BoundLogicItem.Name = operationPool[0].BoundLogicItem.Name;
                 operation.dispName = operation.BoundLogicItem.Name;
+                operation.Tag = "OperationTBP";
 
                 this.Children.Add(operation);
                 SetConnectorDecoratorTemplate(operation);
@@ -257,6 +259,7 @@ namespace DiagramDesigner
                     DesignerItem error = this.CreateItem(Canvas.GetTop(dmp) + 140, this.GlobalOffsetX + 140 * (i + 1));
                     error.Content = this.GetErrorContent();
                     error.BoundLogicItem = new GrossError(Guid.NewGuid(), error.ID);
+                    error.Tag = "ErrorTBP";
 
                     this.Children.Add(error);
                     SetConnectorDecoratorTemplate(error);
@@ -340,6 +343,7 @@ namespace DiagramDesigner
             startTBP.Content = this.GetStartTBPContent();
             startTBP.BoundLogicItem = new StartTBP(Guid.NewGuid(), startTBP.ID);
             startTBP.dispName = startTBP.BoundLogicItem.Name;
+            startTBP.Tag = "StartTBP";
 
             this.Children.Add(startTBP);
             SetConnectorDecoratorTemplate(startTBP);
