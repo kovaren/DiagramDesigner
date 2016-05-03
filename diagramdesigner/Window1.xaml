@@ -32,40 +32,35 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ContentControl Content="{StaticResource MyToolbar}"/>
+        <ContentControl x:Name="contentControl" Content="{StaticResource RBPToolbar}"/>
 
-        <Grid Grid.Row="1" Margin="0,5,0,0">
+        <Grid Grid.Row="1" Margin="1,5,1,1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="75"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
             <!-- Toolbox -->
-            <StackPanel Grid.Column="0" Margin="0,0,5,0">
-                <Expander Name="RBPtools" Header="RBP Elements" Content="{StaticResource RBPStencils}" IsExpanded="True" HorizontalAlignment="Right" Width="195"/>
-                <Expander Name="TBPtools" Header="TBP Elements" Content="{StaticResource TBPStencils}" IsExpanded="False" IsEnabled="False" />
-            </StackPanel>
+                <GroupBox x:Name="Toolbox" Grid.Column="0" Margin="0,0,5,0" Header="Toolbox" Content="{StaticResource RBPStencils}"/>
             <!-- GridSplitter -->
             <GridSplitter Focusable="False" Width="2" Background="LightGray"
 				VerticalAlignment="Stretch" HorizontalAlignment="Right"/>
             <!-- Designer -->
             <!-- <GroupBox Header="Diagram" Grid.Column="1" Margin="3,0,3,0"> -->
             <TabControl Name="DesignerTabs" Grid.Column="1" Margin="3,0,3,0" ItemsSource="{Binding}" SelectionChanged="DesignerTabs_SelectionChanged">
-                <TabControl.Resources>
-                    <DataTemplate x:Key="TabHeader" DataType="TabItem">
-                        <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                <TabItem x:Name="RBPDesignerTab" Header="Real Business Process">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto"
 					VerticalScrollBarVisibility="Auto">
-                            <s:DesignerCanvas Focusable="true" x:Name="MyDesigner"
+                        <s:DesignerCanvas Focusable="true" x:Name="RBPDesigner"
 						Background="{StaticResource WindowBackgroundBrush}"
 						Margin="10" FocusVisualStyle="{x:Null}"
 						ContextMenu="{StaticResource DesignerCanvasContextMenu}"/>
-                        </ScrollViewer>
-                    </DataTemplate>
-                </TabControl.Resources>
-                <TabItem Header="Real Business Process">
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem x:Name="TBPDesignerTab" Header="Training Business Process" Visibility="Hidden">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto"
-					VerticalScrollBarVisibility="Auto">
-                        <s:DesignerCanvas Focusable="true" x:Name="MyDesigner"
+					VerticalScrollBarVisibility="Auto" FocusManager.FocusedElement="{Binding ElementName=TBPDesigner}">
+                        <s:DesignerCanvas Focusable="true" x:Name="TBPDesigner"
 						Background="{StaticResource WindowBackgroundBrush}"
 						Margin="10" FocusVisualStyle="{x:Null}"
 						ContextMenu="{StaticResource DesignerCanvasContextMenu}"/>

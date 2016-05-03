@@ -61,25 +61,23 @@
 
     <s:Toolbox x:Key="RBPStencils" ItemSize="60,60">
     <ItemsControl.Items>
-               <Path Style="{StaticResource Operation}" ToolTip="Operation">
+            <Path Style="{StaticResource Start}" ToolTip="Start">
 
-                    <s:DesignerItem.DragThumbTemplate>
-                        <ControlTemplate>
-                            <Path Style="{StaticResource Operation_DragThumb}"/>
-                        </ControlTemplate>
-                    </s:DesignerItem.DragThumbTemplate>
-                </Path>
-          
+                <s:DesignerItem.DragThumbTemplate>
+                    <ControlTemplate>
+                        <Path Style="{StaticResource Start_DragThumb}"/>
+                    </ControlTemplate>
+                </s:DesignerItem.DragThumbTemplate>
+            </Path>
 
-            
-                <Path Style="{StaticResource Start}" ToolTip="Start">
+            <Path Style="{StaticResource Operation}" ToolTip="Operation">
 
-                    <s:DesignerItem.DragThumbTemplate>
-                        <ControlTemplate>
-                            <Path Style="{StaticResource Start_DragThumb}"/>
-                        </ControlTemplate>
-                    </s:DesignerItem.DragThumbTemplate>
-                </Path>
+                <s:DesignerItem.DragThumbTemplate>
+                    <ControlTemplate>
+                        <Path Style="{StaticResource Operation_DragThumb}"/>
+                    </ControlTemplate>
+                </s:DesignerItem.DragThumbTemplate>
+            </Path>
 
             <Path Style="{StaticResource End}" ToolTip="End">
 

@@ -307,16 +307,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\GenerateCog.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Resources\XMLs\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\GenerateTools.png" />
+    <Resource Include="Resources\Images\499.GIF" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\499.GIF" />
+    <Resource Include="Resources\Images\ALSIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TBPIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

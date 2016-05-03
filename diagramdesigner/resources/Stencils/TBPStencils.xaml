@@ -98,14 +98,6 @@
 
     <s:Toolbox x:Key="TBPStencils" ItemSize="60,60">
         <ItemsControl.Items>
-            <Path Style="{StaticResource Operation}" ToolTip="Operation">
-                <s:DesignerItem.DragThumbTemplate>
-                    <ControlTemplate>
-                        <Path Style="{StaticResource Operation_DragThumb}"/>
-                    </ControlTemplate>
-                </s:DesignerItem.DragThumbTemplate>
-            </Path>
-            
             <Path Style="{StaticResource Start}" ToolTip="Start">
                 <s:DesignerItem.DragThumbTemplate>
                     <ControlTemplate>
@@ -114,10 +106,10 @@
                 </s:DesignerItem.DragThumbTemplate>
             </Path>
 
-            <Path Style="{StaticResource End}" ToolTip="End">
+            <Path Style="{StaticResource Operation}" ToolTip="Operation">
                 <s:DesignerItem.DragThumbTemplate>
                     <ControlTemplate>
-                        <Path Style="{StaticResource End_DragThumb}"/>
+                        <Path Style="{StaticResource Operation_DragThumb}"/>
                     </ControlTemplate>
                 </s:DesignerItem.DragThumbTemplate>
             </Path>
@@ -138,6 +130,13 @@
                 </s:DesignerItem.DragThumbTemplate>
             </Path>
 
+            <Path Style="{StaticResource End}" ToolTip="End">
+                <s:DesignerItem.DragThumbTemplate>
+                    <ControlTemplate>
+                        <Path Style="{StaticResource End_DragThumb}"/>
+                    </ControlTemplate>
+                </s:DesignerItem.DragThumbTemplate>
+            </Path>
         </ItemsControl.Items>
     </s:Toolbox>
 </ResourceDictionary>

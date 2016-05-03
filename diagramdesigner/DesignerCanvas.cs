@@ -147,7 +147,7 @@ namespace DiagramDesigner
             return size;
         }
 
-        private void SetConnectorDecoratorTemplate(DesignerItem item)
+        public void SetConnectorDecoratorTemplate(DesignerItem item)
         {
             if (item.ApplyTemplate() && item.Content is UIElement)
             {
