@@ -158,7 +158,7 @@ namespace DiagramDesigner
             //build map of operations
             this.GlobalOffsetX = 100;
 
-            ProgressBarPopup pbp = new ProgressBarPopup();
+            ProgressWindow pbp = new ProgressWindow();
             pbp.Owner = App.Current.MainWindow;
             pbp.Show();
 

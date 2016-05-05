@@ -137,7 +137,7 @@
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DiagramDesigner.ProgressBarPopup">
+  <Class Name="DiagramDesigner.ProgressWindow">
     <Position X="7.5" Y="11.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>

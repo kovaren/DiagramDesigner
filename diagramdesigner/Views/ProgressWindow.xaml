@@ -1,4 +1,4 @@
-﻿<Window x:Class="DiagramDesigner.ProgressBarPopup"
+﻿<Window x:Class="DiagramDesigner.ProgressWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Processing..." Height="130" Width="300" ResizeMode="NoResize" SizeToContent="WidthAndHeight" Topmost="True" WindowStartupLocation="CenterOwner" Cursor="Wait" Loaded="Window_Loaded">

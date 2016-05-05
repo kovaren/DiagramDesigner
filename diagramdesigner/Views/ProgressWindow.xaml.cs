@@ -17,16 +17,16 @@ namespace DiagramDesigner
     /// <summary>
     /// Interaction logic for ProgressWindow.xaml
     /// </summary>
-    public partial class ProgressBarPopup : Window
+    public partial class ProgressWindow : Window
     {
         BackgroundWorker worker;
 
-        public ProgressBarPopup()
+        public ProgressWindow()
         {
             InitializeComponent();
         }
 
-        public ProgressBarPopup(String text)
+        public ProgressWindow(String text)
         {
             ((TextBlock)this.FindName("pbText")).Text = text;
             InitializeComponent();
