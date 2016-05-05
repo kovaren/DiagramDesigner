@@ -94,11 +94,11 @@
     <Compile Include="BusinessLogic\Resources\LaborForce.cs" />
     <Compile Include="BusinessLogic\Resources\Service.cs" />
     <Compile Include="BusinessLogic\TBP\Error.cs" />
-    <Compile Include="Views\Window2.xaml.cs">
-      <DependentUpon>Window2.xaml</DependentUpon>
+    <Compile Include="Views\ProgressWindow.xaml.cs">
+      <DependentUpon>ProgressWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WindowALS.xaml.cs">
-      <DependentUpon>WindowALS.xaml</DependentUpon>
+    <Compile Include="Views\ALSWindow.xaml.cs">
+      <DependentUpon>ALSWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\ResourceWindow.xaml">
       <SubType>Designer</SubType>
@@ -186,7 +186,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Window1.xaml">
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -205,15 +205,15 @@
     <Compile Include="BusinessLogic\RBP\End.cs" />
     <Compile Include="BusinessLogic\RBP\Start.cs" />
     <Compile Include="BusinessLogic\RBP\OperationRBP.cs" />
-    <Compile Include="Views\Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\Window2.xaml">
+    <Page Include="Views\ProgressWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WindowALS.xaml">
+    <Page Include="Views\ALSWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -203,7 +203,7 @@ namespace DiagramDesigner
             //}
             //MessageBox.Show(ALS);
 
-            WindowALS als = new WindowALS(dt, expr);
+            ALSWindow als = new ALSWindow(dt, expr);
             als.Owner = App.Current.MainWindow;
             als.Show();
 

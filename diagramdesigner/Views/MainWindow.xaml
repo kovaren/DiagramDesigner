@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:s="clr-namespace:DiagramDesigner"
         xmlns:c="clr-namespace:DiagramDesigner.Controls"
-        xmlns:Properties="clr-namespace:DiagramDesigner.Properties" x:Class="DiagramDesigner.Window1"
+        xmlns:Properties="clr-namespace:DiagramDesigner.Properties" x:Class="DiagramDesigner.MainWindow"
         WindowState="Maximized"
         WindowStartupLocation="CenterScreen"
         Height="600" Width="900">

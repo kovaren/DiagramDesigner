@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace DiagramDesigner
 {
     /// <summary>
-    /// Interaction logic for Window2.xaml
+    /// Interaction logic for ProgressWindow.xaml
     /// </summary>
     public partial class ProgressBarPopup : Window
     {

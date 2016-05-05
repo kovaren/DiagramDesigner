@@ -15,15 +15,15 @@ using System.Windows.Shapes;
 namespace DiagramDesigner
 {
     /// <summary>
-    /// Interaction logic for WindowALS.xaml
+    /// Interaction logic for ALSWindow.xaml
     /// </summary>
-    public partial class WindowALS : Window
+    public partial class ALSWindow : Window
     {
-        public WindowALS()
+        public ALSWindow()
         {
             InitializeComponent();
         }
-        public WindowALS(DataTable dt, string expr)
+        public ALSWindow(DataTable dt, string expr)
         {
            
             InitializeComponent();

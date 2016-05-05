@@ -356,7 +356,7 @@
             <StackPanel Orientation="Horizontal">
                 <Button Margin="3" Width="55" Style="{StaticResource ToolBarButtonBaseStyle}"
                         HorizontalContentAlignment="Center"
-                        Command ="{ x:Static s:Window1.GenerateTBP}"
+                        Command ="{ x:Static s:MainWindow.GenerateTBP}"
                         CommandTarget="{Binding ElementName=RBPDesigner}">
                     <Button.Content>
                         <Grid>
@@ -721,7 +721,7 @@
             <StackPanel Orientation="Horizontal">
                 <Button Margin="3" Width="55" Style="{StaticResource ToolBarButtonBaseStyle}"
                         HorizontalContentAlignment="Center"
-                        Command ="{ x:Static s:Window1.GenerateALS}"
+                        Command ="{ x:Static s:MainWindow.GenerateALS}"
                         CommandTarget="{Binding ElementName=TBPDesigner}">
                     <Button.Content>
                         <Grid>

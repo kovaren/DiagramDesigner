@@ -20,15 +20,15 @@ using System.Windows.Data;
 
 namespace DiagramDesigner
 {
-    public partial class Window1 : Window
+    public partial class MainWindow : Window
     {
         public static RoutedCommand GenerateTBP = new RoutedCommand();
         public static RoutedCommand GenerateALS = new RoutedCommand();
-        public Window1()
+        public MainWindow()
         {
             InitializeComponent();
             this.Title = "Business Process Modeller";
-            this.CommandBindings.Add(new CommandBinding(Window1.GenerateTBP, Generate_TBP));
+            this.CommandBindings.Add(new CommandBinding(MainWindow.GenerateTBP, Generate_TBP));
         }
 
         private void DesignerTabs_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
