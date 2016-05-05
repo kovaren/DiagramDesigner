@@ -8,25 +8,12 @@ namespace DiagramDesigner.ResourcesLogic
 {
     public class BaseResource
     {
-         #region Attributes
+        #region Attributes
         private Guid id;
-        protected DataRowView element;
         public Guid ID
         {
             get { return id; }
             set { id = value; }
-        }
-        public DataRowView Element
-        {
-            get { return element; }
-            set { element = value; }
-        }
-
-        private Guid designerID;
-        public Guid DesignerID
-        {
-            get { return designerID; }
-            set { designerID = value; }
         }
 
         private String name;
@@ -36,32 +23,23 @@ namespace DiagramDesigner.ResourcesLogic
             set { name = value; }
         }
 
-        private String displayName;
-        public String DisplayName
+        private String title;
+        public String Title
         {
-            get { return name; }
-            set { name = value; }
+            get { return title; }
+            set { title = value; }
         }
         #endregion
 
         #region Constructors
+        public BaseResource()
+        {
+            id = Guid.NewGuid();
+        }
+
         public BaseResource(Guid id)
         {
             this.id = id;
-          
-        }
-
-        public BaseResource()
-            : this(Guid.NewGuid())
-        {
-        }
-
-        public BaseResource(Guid id, Guid designerID)
-        {
-            this.id = id;
-            this.designerID = designerID;
-            this.Name = "BaseResource";
-            
         }
 
         #endregion

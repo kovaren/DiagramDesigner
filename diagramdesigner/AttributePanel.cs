@@ -22,13 +22,11 @@ namespace DiagramDesigner
             {
                 name = value;
                 OnPropertyChanged("Name");
-                
             }
         }
         public Guid LogicID { get; set; }
         public Guid DesignerID { get; set; }
 
-               
         public AttributePanel ()
         {
             Name = "";
@@ -41,26 +39,19 @@ namespace DiagramDesigner
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name)
         {
-
             PropertyChangedEventHandler handler = PropertyChanged;
 
             if (handler != null)
             {
-
                 handler(this, new PropertyChangedEventArgs(name));
 
                 //update name of the selected item, when name is changed in attribute panel
                 Window mw = App.Current.MainWindow;
-                DesignerCanvas designer = (DesignerCanvas)mw.FindName("MyDesigner");
+                DesignerCanvas designer = (DesignerCanvas)mw.FindName("RBPDesigner");
                 DesignerItem item = ((DesignerItem)designer.SelectionService.CurrentSelection[0]);
                 item.dispName = this.Name;
                 ((OperationRBP)item.BoundLogicItem).Name = this.Name;
-
-                
-                
-
             }
-
         }
     }
 }

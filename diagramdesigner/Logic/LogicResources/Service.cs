@@ -15,7 +15,6 @@ namespace DiagramDesigner.ResourcesLogic
         private Double duration;
         private DataRowView goal;
         private DataRowView type;
-        private DataRowView element;
 
         public Double PricePerHour
         {
@@ -42,30 +41,21 @@ namespace DiagramDesigner.ResourcesLogic
             get { return type; }
             set { type = value; }
         }
-        //public DataRowView Element
-        //{
-        //    get { return element; }
-        //    set { element = value; }
-        //}
         #endregion
 
         #region Constructors
-       
 
-        public Service(Guid id, Guid designerID)
+
+        public Service(Guid id)
+            : base(id)
         {
-            this.ID = id;
-            this.DesignerID = designerID;
-            this.Name = "Newservice";
-            this.DisplayName = "Услуга";
+            this.Name = "Service";
+            this.Title = null;
             this.PricePerHour = 0;
             this.Currency = null;
             this.Duration = 0;
             this.Goal = null;
             this.Type = null;
-            this.Element = null;
-
-            
         }
 
         #endregion

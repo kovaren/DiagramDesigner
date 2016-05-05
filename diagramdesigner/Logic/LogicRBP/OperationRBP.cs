@@ -17,11 +17,19 @@ namespace DiagramDesigner.LogicRBP
 
         public OperationRBP(Guid id, Guid designerID, string name = "Operation")
         {
-            this.ID= id;
-            this.DesignerID= designerID;
+            this.ID = id;
+            this.DesignerID = designerID;
             this.Name = name;
             this.MyProperty = "Test";
             this.Resources = new List<BaseResource>();
+        }
+        public OperationRBP(Guid id, Guid designerID, List<BaseResource> resources, string name = "Operation")
+        {
+            this.ID = id;
+            this.DesignerID = designerID;
+            this.Name = name;
+            this.MyProperty = "Test";
+            this.Resources = resources;
         }
     }
 }

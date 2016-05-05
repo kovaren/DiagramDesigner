@@ -13,7 +13,6 @@ namespace DiagramDesigner.ResourcesLogic
         private DateTime begdate;
         private String document;
         private DataRowView type;
-        private DataRowView element;
         public DateTime BegDate
         {
             get { return begdate; }
@@ -29,27 +28,18 @@ namespace DiagramDesigner.ResourcesLogic
             get { return type; }
             set { type = value; }
         }
-        //public DataRowView Element
-        //{
-        //    get { return element; }
-        //    set { element = value; }
-        //}
-
         #endregion
 
         #region Constructors
        
-        public InformationResource(Guid id, Guid designerID)
+        public InformationResource(Guid id)
         {
             this.ID = id;
-            this.DesignerID = designerID;
             this.Name = "NewInformationResource";
-            this.DisplayName = "Информационный ресурс";
+            this.Title = null;
             this.BegDate = DateTime.Now; 
             this.Document = "Document";
             this.Type = null;
-            this.Element = null;
-
         }
 
         #endregion

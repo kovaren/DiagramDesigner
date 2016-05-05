@@ -82,14 +82,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddResource.xaml.cs">
-      <DependentUpon>AddResource.xaml</DependentUpon>
+    <Compile Include="ResourceWindow.xaml.cs">
+      <DependentUpon>ResourceWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Logic\LogicResources\BaseResource.cs" />
     <Compile Include="Logic\LogicResources\BusinessPartner.cs" />
     <Compile Include="Logic\LogicResources\Equipment.cs" />
     <Compile Include="Logic\LogicResources\FinancialResource.cs" />
-    <Compile Include="Logic\LogicResources\Good.cs" />
+    <Compile Include="Logic\LogicResources\Product.cs" />
     <Compile Include="Logic\LogicResources\InformationResource.cs" />
     <Compile Include="Logic\LogicResources\LaborForce.cs" />
     <Compile Include="Logic\LogicResources\Service.cs" />
@@ -103,7 +103,7 @@
     <Compile Include="WindowALS.xaml.cs">
       <DependentUpon>WindowALS.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddResource.xaml">
+    <Page Include="ResourceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

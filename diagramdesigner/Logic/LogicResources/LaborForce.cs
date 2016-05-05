@@ -8,7 +8,7 @@ namespace DiagramDesigner.ResourcesLogic
 {
     class LaborForce : BaseResource
     {
-         #region Attributes
+        #region Attributes
         
         private Double priceperhour;
         private DataRowView position;
@@ -17,7 +17,6 @@ namespace DiagramDesigner.ResourcesLogic
         private DataRowView role;
         private Int16 ammount;
         private DataRowView type;
-        private DataRowView element;
         public Double PricePerHour
         {
             get { return priceperhour; }
@@ -53,21 +52,15 @@ namespace DiagramDesigner.ResourcesLogic
             get { return type; }
             set { type = value; }
         }
-        //public DataRowView Element
-        //{
-        //    get { return element; }
-        //    set { element = value; }
-        //}
         #endregion
 
         #region Constructors
        
-        public LaborForce(Guid id, Guid designerID)
+        public LaborForce(Guid id)
         {
             this.ID = id;
-            this.DesignerID = designerID;
-            this.Name = "NewLaborForce";
-            this.DisplayName = "Трудовой ресурс";
+            this.Name = "Labor force";
+            this.Title = null;
             this.PricePerHour = 0;
             this.Position = null;
             this.Category = "Category";
@@ -75,8 +68,6 @@ namespace DiagramDesigner.ResourcesLogic
             this.Role = null;
             this.Ammount = 0;
             this.Type = null;
-            this.Element = null;
-            
         }
 
         #endregion

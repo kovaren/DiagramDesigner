@@ -6,18 +6,17 @@ using System.Text;
 
 namespace DiagramDesigner.ResourcesLogic
 {
-    class Good : BaseResource
+    class Product : BaseResource
     {
          #region Attributes
 
         private Double price;
         private DataRowView currency;
-        private Double ammount;
-        private Double availableammount;
+        private Double amount;
+        private Double amountAvailable;
         private DataRowView measure;
         private DataRowView goal;
         private DataRowView type;
-        private DataRowView element;
         public Double Price
         {
             get { return price; }
@@ -28,15 +27,15 @@ namespace DiagramDesigner.ResourcesLogic
             get { return currency; }
             set { currency = value; }
         }
-        public Double Ammount
+        public Double Amount
         {
-            get { return ammount; }
-            set { ammount = value; }
+            get { return amount; }
+            set { amount = value; }
         }
-        public Double AvailableAmmount 
+        public Double AmountAvailable
         {
-            get { return availableammount; }
-            set { availableammount = value; }
+            get { return amountAvailable; }
+            set { amountAvailable = value; }
         }
         public DataRowView Measure
         {
@@ -61,22 +60,19 @@ namespace DiagramDesigner.ResourcesLogic
         #endregion
 
         #region Constructors
-       
 
-        public Good(Guid id, Guid designerID)
+        public Product(Guid id)
+            : base(id)
         {
-            this.ID = id;
-            this.DesignerID = designerID;
-            this.Name = "NewGood";
-            this.DisplayName = "Товар";
+            this.Name = "Product";
+            this.Title = null;
             this.Price = 0;
             this.Currency = null;
-            this.Ammount = 0;
-            this.AvailableAmmount = 0;
+            this.Amount = 0;
+            this.AmountAvailable = 0;
             this.Measure = null;
             this.Goal = null;
             this.Type = null;
-            this.Element = null;
         }
 
         #endregion

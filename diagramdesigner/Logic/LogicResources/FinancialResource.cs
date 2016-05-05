@@ -8,13 +8,11 @@ namespace DiagramDesigner.ResourcesLogic
 {
     class FinancialResource : BaseResource
     {
-         #region Attributes
-
+        #region Attributes
 
         private double ammount;
         private DataRowView currency;
         private DataRowView type;
-        private DataRowView element;
         public double Ammount
         {
             get { return ammount; }
@@ -30,27 +28,18 @@ namespace DiagramDesigner.ResourcesLogic
             get { return type; }
             set { type = value; }
         }
-        //public DataRowView Element
-        //{
-        //    get { return element; }
-        //    set { element = value; }
-        //}
 
         #endregion
 
         #region Constructors
-        public FinancialResource(Guid id, Guid designerID)
+        public FinancialResource(Guid id)
         {
             this.ID = id;
-            this.DesignerID = designerID;
             this.Name = "NewFinancialResource";
-            this.DisplayName = "Финансовый ресурс";
+            this.Title = null;
             this.Ammount = 0;
             this.Currency = null;
-            this.Type = null;
-            this.Element = null;
- 
-            
+            this.Type = null;            
         }
 
         #endregion

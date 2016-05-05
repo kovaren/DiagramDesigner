@@ -7,6 +7,7 @@ using DiagramDesigner.Controls;
 using DiagramDesigner.LogicRBP;
 using System.ComponentModel;
 using DiagramDesigner.LogicTBP;
+using System.Collections.Generic;
 
 namespace DiagramDesigner
 {
@@ -147,7 +148,11 @@ namespace DiagramDesigner
 
             switch (Class)
             {
-                case "Operation": this.BoundLogicItem = new OperationRBP(Guid.NewGuid(), this.id, "Operation" + num); break;
+                case "Operation": this.BoundLogicItem = new OperationRBP(Guid.NewGuid(), this.id, new List<DiagramDesigner.ResourcesLogic.BaseResource>() 
+                {
+                    new DiagramDesigner.ResourcesLogic.Product(Guid.NewGuid()) {Title = "Table"},
+                    new DiagramDesigner.ResourcesLogic.Service(Guid.NewGuid()) {Title = "Delivery"}
+                }, "Operation" + num); break;
                 case "Start": this.BoundLogicItem = new Start(Guid.NewGuid(), this.id); break;
                 case "End": this.BoundLogicItem = new End(Guid.NewGuid(), this.id); break;
                 case "DMP": this.BoundLogicItem = new DmpTBP(Guid.NewGuid(), this.id); break;
@@ -172,11 +177,12 @@ namespace DiagramDesigner
         {
             if (this.Tag.ToString() == "Operation")
             {
-                AddResource addResource = new AddResource();
-                addResource.ShowDialog();
-                if (addResource.DialogResult.HasValue && addResource.DialogResult.Value)
+                var operation = (OperationRBP)this.BoundLogicItem;
+                ResourceWindow resourceWindow = new ResourceWindow(operation);
+                resourceWindow.ShowDialog();
+                if (resourceWindow.DialogResult.HasValue && resourceWindow.DialogResult.Value)
                 {
-                    ((OperationRBP)this.BoundLogicItem).Resources.AddRange(addResource.resources);
+                    //((OperationRBP)this.BoundLogicItem).Resources.AddRange(addResource.resources);
                 }
             }
             if (this.Tag.ToString() == "DMP")

@@ -8,13 +8,12 @@ namespace DiagramDesigner.ResourcesLogic
 {
     class Equipment : BaseResource
     {
-         #region Attributes
+        #region Attributes
 
         private Double priceperhour;
         private DataRowView measure;
         private Double ammount;
         private String type;
-        private DataRowView element;
         public Double PricePerHour
         {
             get { return priceperhour; }
@@ -37,11 +36,6 @@ namespace DiagramDesigner.ResourcesLogic
             get { return drv; }
             set { drv = value; }
         }
-        //public DataRowView Element
-        //{
-        //    get { return element; }
-        //    set { element = value; }
-        //}
         public DataRowView Measure
         {
             get { return measure; }
@@ -50,17 +44,15 @@ namespace DiagramDesigner.ResourcesLogic
         #endregion
 
         #region Constructors
-        public Equipment(Guid id, Guid designerID)
+        public Equipment(Guid id)
         {
             this.ID = id;
-            this.DesignerID = designerID;
             this.Name = "NewEquipment";
-            this.DisplayName = "Оборудование";
+            this.Title = null;
             this.PricePerHour = 0;
             this.Ammount = 0;
             this.Type = "";
             this.Drv = null;
-            this.Element = null;
             this.Measure = null;
             
         }

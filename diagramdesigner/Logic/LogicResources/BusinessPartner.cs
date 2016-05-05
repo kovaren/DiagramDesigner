@@ -16,7 +16,6 @@ namespace DiagramDesigner.ResourcesLogic
         private DataRowView typeofpartner;
         private DataRowView typeofpartnership;
         private DataRowView type;
-        private DataRowView element;
         public String ContactName
         {
             get { return contactname; }
@@ -48,28 +47,20 @@ namespace DiagramDesigner.ResourcesLogic
             set { type = value; }
         }
 
-        //public DataRowView Element
-        //{
-        //    get { return element; }
-        //    set { element = value; }
-        //}
         #endregion
 
         #region Constructors
        
-        public BusinessPartner(Guid id, Guid designerID)
+        public BusinessPartner(Guid id)
         {
             this.ID = id;
-            this.DesignerID = designerID;
             this.Name = "NewPartner";
             this.ContactName = "ContactName";
             this.Address = "Address";
             this.Phone = "+0 (000) 000-00-00";
             this.TypeofPartner = null;
             this.TypeofPartnership = null;
-            this.Type = null;
-            this.Element = null;
-            
+            this.Type = null;            
         }
 
         #endregion
