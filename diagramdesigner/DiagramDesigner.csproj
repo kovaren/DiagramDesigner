@@ -82,7 +82,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ResourceWindow.xaml.cs">
+    <Compile Include="Views\ResourceWindow.xaml.cs">
       <DependentUpon>ResourceWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Logic\LogicResources\BaseResource.cs" />
@@ -94,16 +94,13 @@
     <Compile Include="Logic\LogicResources\LaborForce.cs" />
     <Compile Include="Logic\LogicResources\Service.cs" />
     <Compile Include="Logic\LogicTBP\Error.cs" />
-    <Compile Include="Window2.xaml.cs">
+    <Compile Include="Views\Window2.xaml.cs">
       <DependentUpon>Window2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Window3.xaml.cs">
-      <DependentUpon>Window3.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="WindowALS.xaml.cs">
+    <Compile Include="Views\WindowALS.xaml.cs">
       <DependentUpon>WindowALS.xaml</DependentUpon>
     </Compile>
-    <Page Include="ResourceWindow.xaml">
+    <Page Include="Views\ResourceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -189,7 +186,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Window1.xaml">
+    <Page Include="Views\Window1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -208,19 +205,15 @@
     <Compile Include="Logic\LogicRBP\End.cs" />
     <Compile Include="Logic\LogicRBP\Start.cs" />
     <Compile Include="Logic\LogicRBP\OperationRBP.cs" />
-    <Compile Include="Window1.xaml.cs">
+    <Compile Include="Views\Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Window2.xaml">
+    <Page Include="Views\Window2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Window3.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WindowALS.xaml">
+    <Page Include="Views\WindowALS.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
