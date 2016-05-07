@@ -1,7 +1,7 @@
 ﻿<Window x:Class="DiagramDesigner.ResourceWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Resources" Height="400" Width="600" WindowStartupLocation="CenterScreen">
+        Title="Resources" Height="400" Width="600" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
     <Window.Resources>
         <Style x:Key="headerStyle" TargetType="DataGridColumnHeader">
             <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -18,7 +18,8 @@
                   HorizontalGridLinesBrush="LightGray" 
                   VerticalGridLinesBrush="LightGray" ItemsSource="{Binding Data}" AutoGenerateColumns="False" ColumnHeaderStyle="{StaticResource headerStyle}"
                   CanUserAddRows="False"
-                  IsReadOnly="True">
+                  IsReadOnly="True"
+                  GridLinesVisibility="None">
             <DataGrid.Resources>
                 <Style x:Key="cellStyle">
                     <Setter Property="TextBlock.TextAlignment" Value="Center" />
@@ -33,23 +34,36 @@
                 <DataGridTextColumn Header="Type" ElementStyle="{StaticResource cellStyle}" Binding="{Binding Name}" HeaderStyle="{StaticResource headerStyle}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Menu HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="592" Background="Transparent">
-            <MenuItem Header="Add" Background="Transparent" FontSize="18" BorderThickness="0" Height="36" Width="169">
+        <Menu Height="36" VerticalAlignment="Top" FontSize="16" Background="Transparent">
+            <MenuItem Background="Transparent" BorderThickness="0" Height="36" Width="75">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="28" Height="15" Source="/DiagramDesigner;component/Resources/Images/addResource.png" />
+                        <ContentPresenter Content="Add"/>
+                    </StackPanel>
+                </MenuItem.Header>
                 <MenuItem.Resources>
-                    <Style x:Key="menuItemStyle">
+                    <Style x:Key="menuItemStyle" TargetType="MenuItem">
                         <Setter Property="MenuItem.Background" Value="#FFFAFAFA" />
                         <Setter Property="MenuItem.BorderThickness" Value="0" />
-                        <Setter Property="MenuItem.FontSize" Value="18" />
+                        <EventSetter Event="Click" Handler="MenuItem_Click"/>
                     </Style>
                 </MenuItem.Resources>
-                <MenuItem Header="Information" Style="{StaticResource menuItemStyle}" />
-                <MenuItem Header="Finance" Style="{StaticResource menuItemStyle}" />
-                <MenuItem Header="Labour" Style="{StaticResource menuItemStyle}" />
-                <MenuItem Header="Equipment" Style="{StaticResource menuItemStyle}" />
-                <MenuItem Header="Product" Style="{StaticResource menuItemStyle}" />
-                <MenuItem Header="Service" Style="{StaticResource menuItemStyle}" />
+                <MenuItem Name="InformationMenuItem" Header="Information" Style="{StaticResource menuItemStyle}" />
+                <MenuItem Name="FinanceMenuItem" Header="Finance" Style="{StaticResource menuItemStyle}" />
+                <MenuItem Name="LabourMenuItem" Header="Labour" Style="{StaticResource menuItemStyle}" />
+                <MenuItem Name="EquipmentMenuItem" Header="Equipment" Style="{StaticResource menuItemStyle}" />
+                <MenuItem Name="ProductMenuItem" Header="Product" Style="{StaticResource menuItemStyle}" />
+                <MenuItem Name="ServiceMenuItem" Header="Service" Style="{StaticResource menuItemStyle}" />
             </MenuItem>
-            <MenuItem Header="Remove" Background="Transparent" FontSize="18" BorderThickness="0" Height="36" Width="169"/>
+            <MenuItem Background="Transparent" BorderThickness="0" Height="36" Width="100" Click="removeButton_Click">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="28" Height="14" Source="/DiagramDesigner;component/Resources/Images/deleteResource.png" />
+                        <ContentPresenter Content="Remove"/>
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
         </Menu>
     </Grid>
 </Window>

@@ -82,6 +82,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\InformationWindow.xaml.cs">
+      <DependentUpon>InformationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ResourceWindow.xaml.cs">
       <DependentUpon>ResourceWindow.xaml</DependentUpon>
     </Compile>
@@ -100,6 +103,10 @@
     <Compile Include="Views\ALSWindow.xaml.cs">
       <DependentUpon>ALSWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\InformationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ResourceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -310,6 +317,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\TBPIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\delete.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\addResource.png" />
+    <Resource Include="Resources\Images\deleteResource.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

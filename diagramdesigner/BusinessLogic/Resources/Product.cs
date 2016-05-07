@@ -61,8 +61,7 @@ namespace DiagramDesigner.ResourcesLogic
 
         #region Constructors
 
-        public Product(Guid id)
-            : base(id)
+        public Product() : base()
         {
             this.Name = "Product";
             this.Title = null;

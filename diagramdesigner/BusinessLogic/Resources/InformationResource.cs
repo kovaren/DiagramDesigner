@@ -6,40 +6,69 @@ using System.Text;
 
 namespace DiagramDesigner.ResourcesLogic
 {
-    class InformationResource : BaseResource
+    public class Document
+    {
+        byte[] content;
+        string name;
+        public byte[] Content { get { return content; } set { content = value; IsEmpty = false; } }
+        public string Name { get { return name; } set { name = value; IsEmpty = false; } }
+        public bool IsEmpty;
+        public Document()
+        {
+            Content = new byte[0];
+            Name = "No file chosen";
+            IsEmpty = true;
+        }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+    }
+    public class InformationResource : BaseResource
     {
         #region Attributes
         
-        private DateTime begdate;
-        private String document;
-        private DataRowView type;
-        public DateTime BegDate
+        private DateTime creationDate;
+        private Document document;
+        public DateTime CreationDate
         {
-            get { return begdate; }
-            set { begdate = value; }
+            get { return creationDate; }
+            set { creationDate = value; }
         }
-        public String Document
+        public Document Document
         {
             get { return document; }
             set { document = value; }
         }
-        public DataRowView Type
-        {
-            get { return type; }
-            set { type = value; }
-        }
         #endregion
 
         #region Constructors
-       
-        public InformationResource(Guid id)
+
+        public InformationResource() : base()
         {
-            this.ID = id;
-            this.Name = "NewInformationResource";
-            this.Title = null;
-            this.BegDate = DateTime.Now; 
-            this.Document = "Document";
-            this.Type = null;
+            Name = "Information";
+            Title = string.Empty;
+            CreationDate = DateTime.Now;
+            Document = new Document();
+        }
+
+        public InformationResource(string title, DateTime creationDate, Document document)
+            : base (title)
+        {
+            CreationDate = creationDate;
+            Document = document;
+            Name = "Information";
+        }
+
+        public override bool Equals(object obj)
+        {
+            var resource = obj as InformationResource;
+            if (resource.CreationDate == this.CreationDate
+                && resource.Document == this.Document
+                && resource.Title == this.Title)
+                return true;
+            return false;
         }
 
         #endregion

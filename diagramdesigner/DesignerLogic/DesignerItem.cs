@@ -148,11 +148,7 @@ namespace DiagramDesigner
 
             switch (Class)
             {
-                case "Operation": this.BoundLogicItem = new OperationRBP(Guid.NewGuid(), this.id, new List<DiagramDesigner.ResourcesLogic.BaseResource>() 
-                {
-                    new DiagramDesigner.ResourcesLogic.Product(Guid.NewGuid()) {Title = "Table"},
-                    new DiagramDesigner.ResourcesLogic.Service(Guid.NewGuid()) {Title = "Delivery"}
-                }, "Operation" + num); break;
+                case "Operation": this.BoundLogicItem = new OperationRBP(Guid.NewGuid(), this.id, "Operation" + num); break;
                 case "Start": this.BoundLogicItem = new Start(Guid.NewGuid(), this.id); break;
                 case "End": this.BoundLogicItem = new End(Guid.NewGuid(), this.id); break;
                 case "DMP": this.BoundLogicItem = new DmpTBP(Guid.NewGuid(), this.id); break;
@@ -182,12 +178,12 @@ namespace DiagramDesigner
                 resourceWindow.ShowDialog();
                 if (resourceWindow.DialogResult.HasValue && resourceWindow.DialogResult.Value)
                 {
-                    //((OperationRBP)this.BoundLogicItem).Resources.AddRange(addResource.resources);
+                    ((OperationRBP)this.BoundLogicItem).Resources = resourceWindow.Resources;
                 }
             }
             if (this.Tag.ToString() == "DMP")
             {
-                string s = String.Join("\n", ((DmpTBP)this.BoundLogicItem).resourceNames);
+                string s = String.Join("\n", ((DmpTBP)this.BoundLogicItem).ResourcesAvailable);
                 MessageBox.Show(s);
             }
         }

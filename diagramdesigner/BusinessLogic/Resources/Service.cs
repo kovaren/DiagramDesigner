@@ -46,8 +46,7 @@ namespace DiagramDesigner.ResourcesLogic
         #region Constructors
 
 
-        public Service(Guid id)
-            : base(id)
+        public Service() : base()
         {
             this.Name = "Service";
             this.Title = null;

@@ -37,9 +37,10 @@ namespace DiagramDesigner.ResourcesLogic
             id = Guid.NewGuid();
         }
 
-        public BaseResource(Guid id)
+        public BaseResource(string title)
         {
-            this.id = id;
+            id = Guid.NewGuid();
+            Title = title;
         }
 
         #endregion

@@ -15,7 +15,7 @@ namespace DiagramDesigner.LogicTBP
 
         public List<BaseResource> Resources { get { return resources; } set { resources = value; } }
 
-        public List<string> resourceNames { get { return resources.Select(x => x.Name).ToList(); } }
+        public List<string> ResourcesAvailable { get { return resources.Select(x => x.Title).ToList(); } }
 
         public int AlsID
         {
