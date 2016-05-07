@@ -174,7 +174,7 @@ namespace DiagramDesigner
             if (this.Tag.ToString() == "Operation")
             {
                 var operation = (OperationRBP)this.BoundLogicItem;
-                ResourceWindow resourceWindow = new ResourceWindow(operation);
+                var resourceWindow = new ResourceWindow(operation);
                 resourceWindow.ShowDialog();
                 if (resourceWindow.DialogResult.HasValue && resourceWindow.DialogResult.Value)
                 {

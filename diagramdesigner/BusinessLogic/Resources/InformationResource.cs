@@ -64,6 +64,8 @@ namespace DiagramDesigner.ResourcesLogic
         public override bool Equals(object obj)
         {
             var resource = obj as InformationResource;
+            if (resource == null)
+                return false;
             if (resource.CreationDate == this.CreationDate
                 && resource.Document == this.Document
                 && resource.Title == this.Title)

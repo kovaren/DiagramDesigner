@@ -34,12 +34,7 @@ namespace DiagramDesigner
         {
             foreach (var resource in resourceCollection)
             {
-                _resources.Add(new BaseResource()
-                {
-                    ID = resource.ID,
-                    Title = resource.Title,
-                    Name = resource.Name
-                });
+                _resources.Add(resource);
             }
             dataGrid.ItemsSource = _resources;
             dataGrid.RowStyle = dataGrid.Resources["DataGridRow"] as Style;
