@@ -10,8 +10,30 @@ namespace DiagramDesigner.ResourcesLogic
     {
         byte[] content;
         string name;
-        public byte[] Content { get { return content; } set { content = value; IsEmpty = false; } }
-        public string Name { get { return name; } set { name = value; IsEmpty = false; } }
+        public byte[] Content
+        {
+            get
+            {
+                return content;
+            }
+            set 
+            { 
+                content = value; 
+                IsEmpty = false; 
+            }
+        }
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+                IsEmpty = false;
+            }
+        }
         public bool IsEmpty;
         public Document()
         {
@@ -19,16 +41,10 @@ namespace DiagramDesigner.ResourcesLogic
             Name = "No file chosen";
             IsEmpty = true;
         }
-
-        public override string ToString()
-        {
-            return Name;
-        }
+        public override string ToString() { return Name; }
     }
     public class InformationResource : BaseResource
     {
-        #region Attributes
-        
         private DateTime creationDate;
         private Document document;
         public DateTime CreationDate
@@ -41,18 +57,14 @@ namespace DiagramDesigner.ResourcesLogic
             get { return document; }
             set { document = value; }
         }
-        #endregion
-
-        #region Constructors
 
         public InformationResource() : base()
         {
-            Name = "Information";
             Title = string.Empty;
             CreationDate = DateTime.Now;
             Document = new Document();
+            Name = "Information";
         }
-
         public InformationResource(string title, DateTime creationDate, Document document)
             : base (title)
         {
@@ -72,7 +84,5 @@ namespace DiagramDesigner.ResourcesLogic
                 return true;
             return false;
         }
-
-        #endregion
     }
 }

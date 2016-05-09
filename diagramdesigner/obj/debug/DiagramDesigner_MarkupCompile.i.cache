@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\REP\DiagramDesigner\App.xaml
-201900720952
+21-1121026519
 
-45940615891
+46580527050
 15-1252848237
-Views\InformationWindow.xaml;Views\ResourceWindow.xaml;Resources\ApplicationToolbar.xaml;Resources\Connection.xaml;Resources\DesignerItem.xaml;Resources\Stencils\DraftDictionary.xaml;Resources\Stencils\FlowChartStencils.xaml;Resources\Stencils\TBPStencils.xaml;Resources\Stencils\RBPStencils.xaml;Resources\Stencils\ShapeStencils.xaml;Resources\Styles\Expander.xaml;Resources\Styles\GroupBox.xaml;Resources\Styles\ScrollBar.xaml;Resources\Styles\Shared.xaml;Resources\Styles\ToolBar.xaml;Resources\Toolbox.xaml;Resources\ToolboxItem.xaml;Views\MainWindow.xaml;Views\ProgressWindow.xaml;Views\ALSWindow.xaml;
+Views\FinanceWindow.xaml;Views\InformationWindow.xaml;Views\ResourceWindow.xaml;Resources\ApplicationToolbar.xaml;Resources\Connection.xaml;Resources\DesignerItem.xaml;Resources\Stencils\DraftDictionary.xaml;Resources\Stencils\FlowChartStencils.xaml;Resources\Stencils\TBPStencils.xaml;Resources\Stencils\RBPStencils.xaml;Resources\Stencils\ShapeStencils.xaml;Resources\Styles\Expander.xaml;Resources\Styles\GroupBox.xaml;Resources\Styles\ScrollBar.xaml;Resources\Styles\Shared.xaml;Resources\Styles\ToolBar.xaml;Resources\Toolbox.xaml;Resources\ToolboxItem.xaml;Views\MainWindow.xaml;Views\ProgressWindow.xaml;Views\ALSWindow.xaml;
 
-False
+True
 

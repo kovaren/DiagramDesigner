@@ -43,7 +43,7 @@ namespace DiagramDesigner
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             DataGridRow row = sender as DataGridRow;
-            
+
             if (row.Item is InformationResource)
             {
                 var item = row.Item as InformationResource;
@@ -55,6 +55,21 @@ namespace DiagramDesigner
                     _resources.Remove(item);
                     _resources.Add(informationWindow.InformationResource);
                 }
+                return;
+            }
+
+            if (row.Item is FinancialResource)
+            {
+                var item = row.Item as FinancialResource;
+                var financeWindow = new FinanceWindow(item);
+                financeWindow.ShowDialog();
+
+                if (financeWindow.DialogResult.HasValue && financeWindow.DialogResult.Value)
+                {
+                    _resources.Remove(item);
+                    _resources.Add(financeWindow.FinancialResource);
+                }
+                return;
             }
         }
 
@@ -81,6 +96,19 @@ namespace DiagramDesigner
                 {
                     _resources.Add(informationWindow.InformationResource);
                 }
+                return;
+            }
+
+            if (menuItem == FinanceMenuItem)
+            {
+                var financeWindow = new FinanceWindow(new FinancialResource());
+                financeWindow.ShowDialog();
+
+                if (financeWindow.DialogResult.HasValue && financeWindow.DialogResult.Value)
+                {
+                    _resources.Add(financeWindow.FinancialResource);
+                }
+                return;
             }
         }
 
