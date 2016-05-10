@@ -6,74 +6,61 @@ using System.Text;
 
 namespace DiagramDesigner.ResourcesLogic
 {
-    class Product : BaseResource
+    public enum UnitOfMeasure
     {
-         #region Attributes
-
-        private Double price;
-        private DataRowView currency;
-        private Double amount;
-        private Double amountAvailable;
-        private DataRowView measure;
-        private DataRowView goal;
-        private DataRowView type;
-        public Double Price
+        Item,
+        Kilogram,
+        Metre,
+        Litre
+    }
+    public class Product : BaseResource
+    {
+        private double price;
+        private UnitOfMeasure unitOfMeasure;
+        private double amount;
+        public double Price
         {
             get { return price; }
             set { price = value; }
         }
-        public DataRowView Currency
+        public UnitOfMeasure UnitOfMeasure
         {
-            get { return currency; }
-            set { currency = value; }
+            get { return unitOfMeasure; }
+            set { unitOfMeasure = value; }
         }
-        public Double Amount
+        public double Amount
         {
             get { return amount; }
             set { amount = value; }
         }
-        public Double AmountAvailable
-        {
-            get { return amountAvailable; }
-            set { amountAvailable = value; }
-        }
-        public DataRowView Measure
-        {
-            get { return measure; }
-            set { measure = value; }
-        }
-        public DataRowView Goal
-        {
-            get { return goal; }
-            set { goal = value; }
-        }
-        public DataRowView Type
-        {
-            get { return type; }
-            set { type = value; }
-        }
-        //public DataRowView Element
-        //{
-        //    get { return element; }
-        //    set { element = value; }
-        //}
-        #endregion
 
-        #region Constructors
-
-        public Product() : base()
+        public Product()
+            : base()
         {
-            this.Name = "Product";
-            this.Title = null;
-            this.Price = 0;
-            this.Currency = null;
-            this.Amount = 0;
-            this.AmountAvailable = 0;
-            this.Measure = null;
-            this.Goal = null;
-            this.Type = null;
+            Name = "Product";
+            Price = 0;
+            UnitOfMeasure = UnitOfMeasure.Item;
+            Amount = 0;
         }
-
-        #endregion
+        public Product(string title, double price, double amount, UnitOfMeasure unitOfMeasure)
+            : base(title)
+        {
+            Name = "Product";
+            Price = price;
+            UnitOfMeasure = UnitOfMeasure.Item;
+            Amount = amount;
+        }
+        public override bool Equals(object obj)
+        {
+            var resource = obj as Product;
+            if (resource == null)
+                return false;
+            if (resource.Price == this.Price
+                && resource.Amount == this.Amount
+                && resource.UnitOfMeasure == this.UnitOfMeasure
+                && resource.Title == this.Title)
+                return true;
+            return false;
+        }
     }
 }

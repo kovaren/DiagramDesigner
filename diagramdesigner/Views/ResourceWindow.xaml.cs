@@ -99,6 +99,20 @@ namespace DiagramDesigner
                 }
                 return;
             }
+
+            if (row.Item is Product)
+            {
+                var item = row.Item as Product;
+                var productWindow = new ProductWindow(item);
+                productWindow.ShowDialog();
+
+                if (productWindow.DialogResult.HasValue && productWindow.DialogResult.Value)
+                {
+                    _resources.Remove(item);
+                    _resources.Add(productWindow.Product);
+                }
+                return;
+            }
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
@@ -159,6 +173,18 @@ namespace DiagramDesigner
                 if (equipmentWindow.DialogResult.HasValue && equipmentWindow.DialogResult.Value)
                 {
                     _resources.Add(equipmentWindow.Equipment);
+                }
+                return;
+            }
+
+            if (menuItem == ProductMenuItem)
+            {
+                var productWindow = new ProductWindow(new Product());
+                productWindow.ShowDialog();
+
+                if (productWindow.DialogResult.HasValue && productWindow.DialogResult.Value)
+                {
+                    _resources.Add(productWindow.Product);
                 }
                 return;
             }

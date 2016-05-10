@@ -94,6 +94,9 @@
     <Compile Include="Views\LabourWindow.xaml.cs">
       <DependentUpon>LabourWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ProductWindow.xaml.cs">
+      <DependentUpon>ProductWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ResourceWindow.xaml.cs">
       <DependentUpon>ResourceWindow.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LabourWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProductWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
