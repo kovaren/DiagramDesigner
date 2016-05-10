@@ -88,6 +88,9 @@
     <Compile Include="Views\InformationWindow.xaml.cs">
       <DependentUpon>InformationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\LabourWindow.xaml.cs">
+      <DependentUpon>LabourWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ResourceWindow.xaml.cs">
       <DependentUpon>ResourceWindow.xaml</DependentUpon>
     </Compile>
@@ -97,7 +100,7 @@
     <Compile Include="BusinessLogic\Resources\FinancialResource.cs" />
     <Compile Include="BusinessLogic\Resources\Product.cs" />
     <Compile Include="BusinessLogic\Resources\InformationResource.cs" />
-    <Compile Include="BusinessLogic\Resources\LaborForce.cs" />
+    <Compile Include="BusinessLogic\Resources\LabourForce.cs" />
     <Compile Include="BusinessLogic\Resources\Service.cs" />
     <Compile Include="BusinessLogic\TBP\Error.cs" />
     <Compile Include="Views\ProgressWindow.xaml.cs">
@@ -111,6 +114,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\InformationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LabourWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

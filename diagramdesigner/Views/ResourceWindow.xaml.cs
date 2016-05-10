@@ -71,6 +71,20 @@ namespace DiagramDesigner
                 }
                 return;
             }
+
+            if (row.Item is LabourForce)
+            {
+                var item = row.Item as LabourForce;
+                var labourWindow = new LabourWindow(item);
+                labourWindow.ShowDialog();
+
+                if (labourWindow.DialogResult.HasValue && labourWindow.DialogResult.Value)
+                {
+                    _resources.Remove(item);
+                    _resources.Add(labourWindow.LabourForce);
+                }
+                return;
+            }
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
@@ -107,6 +121,18 @@ namespace DiagramDesigner
                 if (financeWindow.DialogResult.HasValue && financeWindow.DialogResult.Value)
                 {
                     _resources.Add(financeWindow.FinancialResource);
+                }
+                return;
+            }
+
+            if (menuItem == LabourMenuItem)
+            {
+                var labourWindow = new LabourWindow(new LabourForce());
+                labourWindow.ShowDialog();
+
+                if (labourWindow.DialogResult.HasValue && labourWindow.DialogResult.Value)
+                {
+                    _resources.Add(labourWindow.LabourForce);
                 }
                 return;
             }

@@ -134,13 +134,15 @@ namespace DiagramDesigner
         #endregion
         private void Generate_TBP(object sender, ExecutedRoutedEventArgs e)
         {
-            //if (((Expander)App.Current.MainWindow.FindName("RBPtools")).IsEnabled == false)
-            //{
-            //    MessageBox.Show("TBP generation may be executed only on RBP model.");
-            //    e.Handled = true;
-            //    return;
-            //}
-            
+            if (TBPDesigner.Children.Count > 0)
+            {
+                var result = MessageBox.Show("TBP designer is not empty! Are you sure you want to overwrite the current model?", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.No)
+                    return;
+                else
+                    TBPDesigner.Children.Clear();
+            }
+
             IEnumerable<DesignerItem> designerItems = RBPDesigner.Children.OfType<DesignerItem>();
             IEnumerable<Connection> connections = RBPDesigner.Children.OfType<Connection>();
 
@@ -210,7 +212,6 @@ namespace DiagramDesigner
         }
         private void AttachEndTBP(DesignerItem item)
         {
-
             //create dmp below stated item
             DesignerItem end = this.CreateDMP(Canvas.GetTop(item) + 140, Canvas.GetLeft(item));
 
