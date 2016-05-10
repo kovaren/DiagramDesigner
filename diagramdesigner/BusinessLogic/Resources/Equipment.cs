@@ -6,57 +6,44 @@ using System.Text;
 
 namespace DiagramDesigner.ResourcesLogic
 {
-    class Equipment : BaseResource
+    public class Equipment : BaseResource
     {
-        #region Attributes
-
-        private Double priceperhour;
-        private DataRowView measure;
-        private Double ammount;
-        private String type;
-        public Double PricePerHour
+        private double pricePerHour;
+        private string state;
+        public double PricePerHour
         {
-            get { return priceperhour; }
-            set { priceperhour = value; }
+            get { return pricePerHour; }
+            set { pricePerHour = value; }
         }
-        public Double Ammount
+        public string State
         {
-            get { return ammount; }
-            set { ammount = value; }
-        }
-        public String Type
-        {
-            get { return type; }
-            set { type = value; }
+            get { return state; }
+            set { state = value; }
         }
 
-        private DataRowView drv;
-        public DataRowView Drv
+        public Equipment() : base()
         {
-            get { return drv; }
-            set { drv = value; }
+            Name = "Equipment";
+            PricePerHour = 0;
+            State = string.Empty;
         }
-        public DataRowView Measure
+        public Equipment(string title, double pricePerHour, string state)
+            : base(title)
         {
-            get { return measure; }
-            set { measure = value; }
+            Name = "Equipment";
+            PricePerHour = pricePerHour;
+            State = state;
         }
-        #endregion
-
-        #region Constructors
-        public Equipment(Guid id)
+        public override bool Equals(object obj)
         {
-            this.ID = id;
-            this.Name = "NewEquipment";
-            this.Title = null;
-            this.PricePerHour = 0;
-            this.Ammount = 0;
-            this.Type = "";
-            this.Drv = null;
-            this.Measure = null;
-            
+            var resource = obj as Equipment;
+            if (resource == null)
+                return false;
+            if (resource.PricePerHour == this.PricePerHour
+                && resource.State == this.State
+                && resource.Title == this.Title)
+                return true;
+            return false;
         }
-
-        #endregion
     }
 }

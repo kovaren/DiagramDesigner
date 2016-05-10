@@ -85,6 +85,20 @@ namespace DiagramDesigner
                 }
                 return;
             }
+
+            if (row.Item is Equipment)
+            {
+                var item = row.Item as Equipment;
+                var equipmentWindow = new EquipmentWindow(item);
+                equipmentWindow.ShowDialog();
+
+                if (equipmentWindow.DialogResult.HasValue && equipmentWindow.DialogResult.Value)
+                {
+                    _resources.Remove(item);
+                    _resources.Add(equipmentWindow.Equipment);
+                }
+                return;
+            }
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
@@ -133,6 +147,18 @@ namespace DiagramDesigner
                 if (labourWindow.DialogResult.HasValue && labourWindow.DialogResult.Value)
                 {
                     _resources.Add(labourWindow.LabourForce);
+                }
+                return;
+            }
+
+            if (menuItem == EquipmentMenuItem)
+            {
+                var equipmentWindow = new EquipmentWindow(new Equipment());
+                equipmentWindow.ShowDialog();
+
+                if (equipmentWindow.DialogResult.HasValue && equipmentWindow.DialogResult.Value)
+                {
+                    _resources.Add(equipmentWindow.Equipment);
                 }
                 return;
             }
