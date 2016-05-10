@@ -6,58 +6,47 @@ using System.Text;
 
 namespace DiagramDesigner.ResourcesLogic
 {
-    class Service : BaseResource
+    public class Service : BaseResource
     {
-        #region Attributes
+        private double pricePerHour;
+        private double duration;
 
-        private Double priceperhour;
-        private DataRowView currency;
-        private Double duration;
-        private DataRowView goal;
-        private DataRowView type;
-
-        public Double PricePerHour
+        public double PricePerHour
         {
-            get { return priceperhour; }
-            set { priceperhour = value; }
+            get { return pricePerHour; }
+            set { pricePerHour = value; }
         }
-        public DataRowView Currency
-        {
-            get { return currency; }
-            set { currency = value; }
-        }
-        public Double Duration
+        public double Duration
         {
             get { return duration; }
             set { duration = value; }
         }
-        public DataRowView Goal 
-        {
-            get { return goal; }
-            set { goal = value; }
-        }
-        public DataRowView Type
-        {
-            get { return type; }
-            set { type = value; }
-        }
-        #endregion
-
-        #region Constructors
-
 
         public Service() : base()
         {
-            this.Name = "Service";
-            this.Title = null;
-            this.PricePerHour = 0;
-            this.Currency = null;
-            this.Duration = 0;
-            this.Goal = null;
-            this.Type = null;
+            Name = "Service";
+            PricePerHour = 0;
+            Duration = 0;
         }
-
-        #endregion
+        public Service(string title, double price, double duration)
+            : base(title)
+        {
+            Name = "Service";
+            Title = title;
+            PricePerHour = price;
+            Duration = duration;
+        }
+        public override bool Equals(object obj)
+        {
+            var resource = obj as Service;
+            if (resource == null)
+                return false;
+            if (resource.PricePerHour == this.PricePerHour
+                && resource.Duration == this.Duration
+                && resource.Title == this.Title)
+                return true;
+            return false;
+        }
     }
     
 }

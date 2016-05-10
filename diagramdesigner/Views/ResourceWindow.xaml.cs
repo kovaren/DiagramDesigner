@@ -113,6 +113,20 @@ namespace DiagramDesigner
                 }
                 return;
             }
+
+            if (row.Item is Service)
+            {
+                var item = row.Item as Service;
+                var serviceWindow = new ServiceWindow(item);
+                serviceWindow.ShowDialog();
+
+                if (serviceWindow.DialogResult.HasValue && serviceWindow.DialogResult.Value)
+                {
+                    _resources.Remove(item);
+                    _resources.Add(serviceWindow.Service);
+                }
+                return;
+            }
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
@@ -185,6 +199,18 @@ namespace DiagramDesigner
                 if (productWindow.DialogResult.HasValue && productWindow.DialogResult.Value)
                 {
                     _resources.Add(productWindow.Product);
+                }
+                return;
+            }
+
+            if (menuItem == ServiceMenuItem)
+            {
+                var serviceWindow = new ServiceWindow(new Service());
+                serviceWindow.ShowDialog();
+
+                if (serviceWindow.DialogResult.HasValue && serviceWindow.DialogResult.Value)
+                {
+                    _resources.Add(serviceWindow.Service);
                 }
                 return;
             }
