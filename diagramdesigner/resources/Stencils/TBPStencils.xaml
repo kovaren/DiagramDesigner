@@ -11,7 +11,7 @@
         <Setter Property="IsHitTestVisible" Value="False"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="Stroke" Value="#FFD85E59"/>
-        <Setter Property="Tag" Value="ErrorTBP"/>
+        <Setter Property="Tag" Value="Error"/>
 
     </Style>
 
@@ -28,7 +28,7 @@
         <Setter Property="Stretch" Value="Fill"/>
         <Setter Property="IsHitTestVisible" Value="False"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="Tag" Value="OperationTBP"/>
+        <Setter Property="Tag" Value="Operation"/>
 
     </Style>
 
@@ -48,7 +48,7 @@
         <Setter Property="Stretch" Value="Fill"/>
         <Setter Property="IsHitTestVisible" Value="False"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="Tag" Value="StartTBP"/>
+        <Setter Property="Tag" Value="Start"/>
 
 
     </Style>
@@ -67,7 +67,7 @@
         <Setter Property="Stretch" Value="Fill"/>
         <Setter Property="IsHitTestVisible" Value="False"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="Tag" Value="EndTBP"/>
+        <Setter Property="Tag" Value="End"/>
 
 
     </Style>

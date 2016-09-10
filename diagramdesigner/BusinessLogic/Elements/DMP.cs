@@ -1,4 +1,5 @@
-﻿using DiagramDesigner.LogicRBP;
+﻿using DiagramDesigner.BusinessLogic;
+using DiagramDesigner.LogicRBP;
 using DiagramDesigner.ResourcesLogic;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace DiagramDesigner.LogicTBP
 {
-    class DmpTBP : BaseLogic
+    class DMP : BaseLogic
     {
         private int alsId;
 
@@ -23,19 +24,15 @@ namespace DiagramDesigner.LogicTBP
             set { alsId = value; }
         }
 
-        public DmpTBP(Guid id, Guid designerID)
+        public DMP(Guid designerID) : base (designerID)
         {
-            this.ID = id;
-            this.DesignerID = designerID;
             this.Name = "DMP";
             this.Resources = new List<BaseResource>();
         }
-        public DmpTBP(Guid id, Guid designerID, List<BaseLogic> operationPool)
+        public DMP(Guid designerID, List<BaseLogic> operationPool) : base(designerID)
         {
-            this.ID = id;
-            this.DesignerID = designerID;
             this.Name = "DMP";
-            this.Resources = operationPool.SelectMany(x => ((OperationRBP)x).Resources).ToList();
+            this.Resources = operationPool.SelectMany(x => ((Operation)x).Resources.GetAll()).ToList();
         }
     }
 }

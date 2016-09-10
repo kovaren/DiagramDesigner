@@ -25,11 +25,10 @@ namespace DiagramDesigner
         }
         public ALSWindow(DataTable dt, string expr)
         {
-           
             InitializeComponent();
-            dgALS.DataContext = dt.DefaultView;
+            dataGrid.ItemsSource = dt.AsDataView();
             rtbALS.Document.Blocks.Clear();
-            rtbALS.Document.Blocks.Add(new Paragraph(new Run(expr)));
+            rtbALS.Document.Blocks.Add(new Paragraph(new Run(expr) { }));
         }
     }
 }

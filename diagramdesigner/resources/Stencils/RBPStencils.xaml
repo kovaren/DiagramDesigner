@@ -5,7 +5,7 @@
 
     <!--BEGIN OF Operation-->
     <Style x:Key="Operation" TargetType="Path">
-        <Setter Property="Data" Value="M 0,0 H 60 V40 H 0 Z"/>
+        <Setter Property="Data" Value='M 0,0 H 60 V40 H 0 Z'/>
         <Setter Property="Fill" Value="Moccasin"/>
         <Setter Property="Stretch" Value="Fill"/>
         <Setter Property="IsHitTestVisible" Value="False"/>

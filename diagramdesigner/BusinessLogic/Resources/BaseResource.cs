@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DiagramDesigner.BusinessLogic;
+using DiagramDesigner.LogicRBP;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -6,43 +8,38 @@ using System.Text;
 
 namespace DiagramDesigner.ResourcesLogic
 {
-    public class BaseResource
+    public enum Category { None, Input, Output, Control, Mechanism}
+    public class BaseResource : BaseLogic
     {
-        #region Attributes
-        private Guid id;
-        public Guid ID
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        private String name;
-        public String Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-
         private String title;
         public String Title
         {
             get { return title; }
             set { title = value; }
         }
-        #endregion
-
-        #region Constructors
-        public BaseResource()
+        private Category category;
+        public Category Category
         {
-            id = Guid.NewGuid();
+            get { return category; }
+            set { category = value; }
         }
 
-        public BaseResource(string title)
+        public BaseResource() : base ()
+        { }
+        public BaseResource(Guid designerID) : base (designerID)
+        { }
+        public BaseResource(string title) : base()
         {
-            id = Guid.NewGuid();
             Title = title;
         }
-
-        #endregion
+        public override bool Equals(object obj)
+        {
+            var resource = obj as BaseResource;
+            if (resource == null)
+                return false;
+            if (resource.ID == this.ID)
+                return true;
+            return false;
+        }
     }
 }

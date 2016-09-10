@@ -23,30 +23,47 @@ namespace DiagramDesigner
     {
         public InformationResource InformationResource;
         Document Document;
+        bool ResourceCreated = false;
 
         public InformationWindow(InformationResource informationResource)
         {
             InitializeComponent();
             InformationResource = informationResource;
             FillData();
+            Closing += InformationWindow_Closing;
+        }
+
+        void InformationWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            DialogResult = ResourceCreated;
         }
 
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataIsOK())
             {
-                var informationResource = new InformationResource(
-                    titleBox.Text,
-                    dateBox.SelectedDate.Value,
-                    Document
-                    );
-                if (!informationResource.Equals(InformationResource))
-                {
-                    InformationResource = informationResource;
-                    DialogResult = true;
-                }
-                else
-                    DialogResult = false;
+                InformationResource.Title = titleBox.Text;
+                InformationResource.CreationDate = dateBox.SelectedDate.Value;
+                InformationResource.Document = Document;
+                InformationResource.Category = (Category)categoryBox.SelectedItem;
+                ResourceCreated = true;
+                Close();
+
+                //var informationResource = new InformationResource(InformationResource.DesignerID)
+                //{
+                //    ID = InformationResource.ID,
+                //    Title = titleBox.Text,
+                //    CreationDate = dateBox.SelectedDate.Value,
+                //    Document = Document,
+                //    Category = (Category)categoryBox.SelectedItem
+                //};
+                //if (!informationResource.Equals(InformationResource))
+                //{
+                //    InformationResource = informationResource;
+                //    DialogResult = true;
+                //}
+                //else
+                //    DialogResult = false;
             }
             else
                 MessageBox.Show("Some fields are empty or invalid!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -85,6 +102,10 @@ namespace DiagramDesigner
 
         private void FillData()
         {
+            var itemsSource = Enum.GetValues(typeof(Category)).Cast<Category>().ToList();
+            itemsSource.RemoveAt(0);
+            categoryBox.ItemsSource = itemsSource;
+            categoryBox.SelectedValue = InformationResource.Category;
             titleBox.Text = InformationResource.Title;
             dateBox.SelectedDate = InformationResource.CreationDate;
             chosenFileBox.Content = InformationResource.Document.ToString();
@@ -106,7 +127,8 @@ namespace DiagramDesigner
         {
             return
                 titleBox.Text.Any(x => Char.IsLetterOrDigit(x))
-                && dateBox.SelectedDate.HasValue;
+                && dateBox.SelectedDate.HasValue
+                && categoryBox.SelectedIndex != -1;
         }
     }
 }

@@ -19,6 +19,7 @@
         <ResourceDictionary Source="Resources/Stencils/ShapeStencils.xaml"/>
         <ResourceDictionary Source="Resources/Stencils/RBPStencils.xaml"/>
         <ResourceDictionary Source="Resources/Stencils/TBPStencils.xaml"/>
+        <ResourceDictionary Source="Resources/Stencils/ResourceStencils.xaml"/>
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Application.Resources>

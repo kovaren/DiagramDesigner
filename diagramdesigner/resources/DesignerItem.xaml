@@ -133,7 +133,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type s:DesignerItem}">
                     <Grid>
-                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False" Text="{Binding dispName, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type s:DesignerItem}}}"  FontSize="13" Panel.ZIndex="1">
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False" Text="{Binding dispName, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type s:DesignerItem}}}" FontSize="13" Panel.ZIndex="1">
                        
                     </TextBlock>
                     

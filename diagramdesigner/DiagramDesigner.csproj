@@ -82,6 +82,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BusinessLogic\Resources.cs" />
+    <Compile Include="DesignerLogic\ResourceCanvas.cs" />
     <Compile Include="Views\EquipmentWindow.xaml.cs">
       <DependentUpon>EquipmentWindow.xaml</DependentUpon>
     </Compile>
@@ -108,7 +110,7 @@
     <Compile Include="BusinessLogic\Resources\InformationResource.cs" />
     <Compile Include="BusinessLogic\Resources\LabourForce.cs" />
     <Compile Include="BusinessLogic\Resources\Service.cs" />
-    <Compile Include="BusinessLogic\TBP\Error.cs" />
+    <Compile Include="BusinessLogic\Elements\Error.cs" />
     <Compile Include="Views\ProgressWindow.xaml.cs">
       <DependentUpon>ProgressWindow.xaml</DependentUpon>
     </Compile>
@@ -118,6 +120,10 @@
     <Compile Include="Views\ServiceWindow.xaml.cs">
       <DependentUpon>ServiceWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Resources\Stencils\ResourceStencils.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EquipmentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -235,14 +241,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DesignerLogic\AttributePanel.cs" />
-    <Compile Include="BusinessLogic\TBP\DmpTBP.cs" />
-    <Compile Include="BusinessLogic\TBP\EndTBP.cs" />
-    <Compile Include="BusinessLogic\TBP\OperationTBP.cs" />
-    <Compile Include="BusinessLogic\TBP\StartTBP.cs" />
+    <Compile Include="BusinessLogic\Elements\DMP.cs" />
+    <Compile Include="BusinessLogic\Elements\End.cs" />
+    <Compile Include="BusinessLogic\Elements\Operation.cs" />
+    <Compile Include="BusinessLogic\Elements\Start.cs" />
     <Compile Include="BusinessLogic\BaseLogic.cs" />
-    <Compile Include="BusinessLogic\RBP\End.cs" />
-    <Compile Include="BusinessLogic\RBP\Start.cs" />
-    <Compile Include="BusinessLogic\RBP\OperationRBP.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -357,8 +360,20 @@
     <Resource Include="Resources\Images\delete.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\addResource.png" />
+    <Resource Include="Resources\Images\createResource.png" />
     <Resource Include="Resources\Images\deleteResource.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\addResource.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ResourceImages\equipment.png" />
+    <Resource Include="Resources\Images\ResourceImages\finance.png" />
+    <Resource Include="Resources\Images\ResourceImages\information.png" />
+    <Resource Include="Resources\Images\ResourceImages\labour.png" />
+    <Resource Include="Resources\Images\ResourceImages\Partner.png" />
+    <Resource Include="Resources\Images\ResourceImages\product.png" />
+    <Resource Include="Resources\Images\ResourceImages\service.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

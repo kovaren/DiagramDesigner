@@ -8,6 +8,9 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Markup;
 using System.Xml;
+using DiagramDesigner.LogicRBP;
+using DiagramDesigner.LogicTBP;
+using DiagramDesigner.ResourcesLogic;
 
 namespace DiagramDesigner
 {
@@ -16,7 +19,6 @@ namespace DiagramDesigner
         int itemCounter = 0;
 
         private Point? rubberbandSelectionStartPoint = null;
-
         private SelectionService selectionService;
         internal SelectionService SelectionService
         {
@@ -85,8 +87,9 @@ namespace DiagramDesigner
                 {
                     itemCounter = this.Children.OfType<DesignerItem>().Where(x => x.Tag.ToString() == dragObject.Class).Count();
 
-                    newItem = new DesignerItem(Guid.NewGuid(),dragObject.Class, ++itemCounter);
+                    newItem = new DesignerItem(Guid.NewGuid(), dragObject.Class, ++itemCounter);
                     newItem.Content = content;
+                    newItem.MouseDoubleClick += DesignerItem_MouseDoubleClick;
 
                     Point position = e.GetPosition(this);
 
@@ -106,8 +109,8 @@ namespace DiagramDesigner
                     }
 
                     Canvas.SetZIndex(newItem, this.Children.Count);
-                    this.Children.Add(newItem);              
-                    
+                    this.Children.Add(newItem);
+
                     SetConnectorDecoratorTemplate(newItem);
 
                     //update selection
@@ -118,6 +121,50 @@ namespace DiagramDesigner
 
                 e.Handled = true;
             }
+        }
+
+        void DesignerItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var item = sender as DesignerItem;
+            var otherItems = Children.OfType<DesignerItem>().Select(x => x.BoundLogicItem).ToList();
+            //MessageBox.Show("Resource number: " + (item.BoundLogicItem as Operation).Resources.Count().ToString());
+            if (item.Tag.ToString() == "Operation")
+            {
+                var operation = item.BoundLogicItem as Operation;
+                var otherResources = otherItems
+                    .OfType<Operation>()
+                    .SelectMany(x => x.Resources.GetAll())
+                    .Distinct(new ResourceComparer())
+                    .ToList();
+                otherResources.RemoveAll(x => operation.Resources.GetAll().Contains(x, new ResourceComparer()));
+                //otherResources = otherResources.Distinct(new ResourceComparer()).ToList();
+
+                var resourceWindow = new ResourceWindow(operation, otherResources);
+                resourceWindow.ShowDialog();
+                if (resourceWindow.DialogResult.HasValue && resourceWindow.DialogResult.Value)
+                {
+                    ((Operation)(item).BoundLogicItem).Resources = resourceWindow.Resources;
+                    sender = item;
+                }
+                return;
+            }
+            if (item.Tag.ToString() == "DMP")
+            {
+                var dmp = item.BoundLogicItem as DMP;
+                MessageBox.Show(string.Join("\n", dmp.ResourcesAvailable));
+                //resourceWindow.ShowDialog();
+                //if (resourceWindow.DialogResult.HasValue && resourceWindow.DialogResult.Value)
+                //{
+                //    ((DmpTBP)this.BoundLogicItem).Resources = resourceWindow.Resources;
+                //}
+                return;
+            }
+        }
+
+        public void AddChild(DesignerItem element)
+        {
+            Children.Add(element);
+            element.MouseDoubleClick += DesignerItem_MouseDoubleClick;
         }
 
         protected override Size MeasureOverride(Size constraint)
@@ -156,6 +203,20 @@ namespace DiagramDesigner
                 if (decorator != null && template != null)
                     decorator.Template = template;
             }
+        }
+    }
+
+    class ResourceComparer : IEqualityComparer<BaseResource>
+    {
+        // Products are equal if their names and product numbers are equal.
+        public bool Equals(BaseResource x, BaseResource y)
+        {
+            return x.ID == y.ID;
+        }
+
+        public int GetHashCode(BaseResource product)
+        {
+            return 0;
         }
     }
 }

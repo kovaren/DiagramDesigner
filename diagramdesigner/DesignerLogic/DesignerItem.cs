@@ -8,6 +8,8 @@ using DiagramDesigner.LogicRBP;
 using System.ComponentModel;
 using DiagramDesigner.LogicTBP;
 using System.Collections.Generic;
+using DiagramDesigner.ResourcesLogic;
+using DiagramDesigner.BusinessLogic;
 
 namespace DiagramDesigner
 {
@@ -139,23 +141,28 @@ namespace DiagramDesigner
                 typeof(DesignerItem), new FrameworkPropertyMetadata(typeof(DesignerItem)));
         }
 
-        public DesignerItem(Guid id, String Class, int num)
+        public DesignerItem(Guid id, String Class, int num = 1)
         {
             this.id = id;
             this.Tag = Class;
             this.Loaded += new RoutedEventHandler(DesignerItem_Loaded);
-            this.MouseDoubleClick += DesignerItem_MouseDoubleClick;
+            //this.MouseDoubleClick += DesignerItem_MouseDoubleClick;
 
             switch (Class)
             {
-                case "Operation": this.BoundLogicItem = new OperationRBP(Guid.NewGuid(), this.id, "Operation" + num); break;
-                case "Start": this.BoundLogicItem = new Start(Guid.NewGuid(), this.id); break;
-                case "End": this.BoundLogicItem = new End(Guid.NewGuid(), this.id); break;
-                case "DMP": this.BoundLogicItem = new DmpTBP(Guid.NewGuid(), this.id); break;
-                case "StartTBP": this.BoundLogicItem = new StartTBP(Guid.NewGuid(), this.id); break;
-                case "EndTBP": this.BoundLogicItem = new EndTBP(Guid.NewGuid(), this.id); break;
-                case "OperationTBP": this.BoundLogicItem = new OperationTBP(Guid.NewGuid(), this.id, "Operation" + num); break;
-                case "ErrorTBP": this.BoundLogicItem = new GrossError(Guid.NewGuid(), this.id); break;
+                case "Operation": this.BoundLogicItem = new Operation(this.id, "Operation" + num); break;
+                case "Start": this.BoundLogicItem = new Start(this.id); break;
+                case "End": this.BoundLogicItem = new End(this.id); break;
+                case "DMP": this.BoundLogicItem = new DMP(this.id); break;
+                case "Error": this.BoundLogicItem = new GrossError(this.id); break;
+
+                case "Information": this.BoundLogicItem = new InformationResource(this.id); break;
+                case "Finance": this.BoundLogicItem = new FinancialResource(); break;
+                case "Labour": this.BoundLogicItem = new LabourForce(); break;
+                case "Equipment": this.BoundLogicItem = new Equipment(); break;
+                case "Product": this.BoundLogicItem = new Product(); break;
+                case "Service": this.BoundLogicItem = new Service(); break;
+                case "BusinessPartner": this.BoundLogicItem = new BusinessPartner(); break;
                 default: return;
             }
 
@@ -169,24 +176,25 @@ namespace DiagramDesigner
             }
         }
 
-        void DesignerItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if (this.Tag.ToString() == "Operation")
-            {
-                var operation = (OperationRBP)this.BoundLogicItem;
-                var resourceWindow = new ResourceWindow(operation);
-                resourceWindow.ShowDialog();
-                if (resourceWindow.DialogResult.HasValue && resourceWindow.DialogResult.Value)
-                {
-                    ((OperationRBP)this.BoundLogicItem).Resources = resourceWindow.Resources;
-                }
-            }
-            if (this.Tag.ToString() == "DMP")
-            {
-                string s = String.Join("\n", ((DmpTBP)this.BoundLogicItem).ResourcesAvailable);
-                MessageBox.Show(s);
-            }
-        }
+        //void DesignerItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        //{
+        //    if (this.Tag.ToString() == "Operation")
+        //    {
+        //        var operation = (OperationRBP)this.BoundLogicItem;
+        //        ((DesignerCanvas)Parent).Children.
+        //        var resourceWindow = new ResourceWindow(operation);
+        //        resourceWindow.ShowDialog();
+        //        if (resourceWindow.DialogResult.HasValue && resourceWindow.DialogResult.Value)
+        //        {
+        //            ((OperationRBP)this.BoundLogicItem).Resources = resourceWindow.Resources;
+        //        }
+        //    }
+        //    if (this.Tag.ToString() == "DMP")
+        //    {
+        //        string s = String.Join("\n", ((DmpTBP)this.BoundLogicItem).ResourcesAvailable);
+        //        MessageBox.Show(s);
+        //    }
+        //}
 
         public DesignerItem(Guid id)
         {
@@ -199,7 +207,7 @@ namespace DiagramDesigner
             this.id = id;
             this.Tag = tag;
             this.Loaded += new RoutedEventHandler(DesignerItem_Loaded);
-            this.MouseDoubleClick += DesignerItem_MouseDoubleClick;
+            //this.MouseDoubleClick += DesignerItem_MouseDoubleClick;
         }
 
         public DesignerItem()
@@ -263,25 +271,24 @@ namespace DiagramDesigner
             }
         }
 
-
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string dispName)
         {
-
             PropertyChangedEventHandler handler = PropertyChanged;
 
             if (handler != null)
             {
-
-                handler(this, new PropertyChangedEventArgs(dispName));
-                ((OperationRBP)this.BoundLogicItem).Name = this.dispName;
-               
-                
-
-
-
+                if (BoundLogicItem is Operation)
+                {
+                    handler(this, new PropertyChangedEventArgs(dispName));
+                    ((Operation)this.BoundLogicItem).Name = this.dispName;
+                }
+                if (BoundLogicItem is BaseResource)
+                {
+                    handler(this, new PropertyChangedEventArgs(dispName));
+                    ((BaseResource)this.BoundLogicItem).Name = this.dispName;
+                }
             }
-
         }
     }
 }

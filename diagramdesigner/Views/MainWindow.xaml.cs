@@ -29,6 +29,7 @@ namespace DiagramDesigner
             InitializeComponent();
             this.Title = "Business Process Modeller";
             this.CommandBindings.Add(new CommandBinding(MainWindow.GenerateTBP, Generate_TBP));
+            this.CommandBindings.Add(new CommandBinding(MainWindow.GenerateALS, Generate_ALS));
         }
 
         private void DesignerTabs_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -74,7 +75,7 @@ namespace DiagramDesigner
 
         private object GetOperationTBPContent()
         {
-            String xaml = "<Path ToolTip='Operation' xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml' xmlns:s='clr-namespace:System;assembly=mscorlib' xmlns:dd='clr-namespace:DiagramDesigner;assembly=DiagramDesigner'><Path.Style><Style TargetType='Path'><Style.Resources><ResourceDictionary /></Style.Resources><Setter Property='Path.Data'><Setter.Value><StreamGeometry>M0,0L60,0 60,40 0,40z</StreamGeometry></Setter.Value></Setter><Setter Property='Shape.Fill'><Setter.Value><SolidColorBrush>#FFFFE4B5</SolidColorBrush></Setter.Value></Setter><Setter Property='Shape.Stretch'><Setter.Value><x:Static Member='Stretch.Fill' /></Setter.Value></Setter><Setter Property='UIElement.IsHitTestVisible'><Setter.Value><s:Boolean>False</s:Boolean></Setter.Value></Setter><Setter Property='UIElement.SnapsToDevicePixels'><Setter.Value><s:Boolean>True</s:Boolean></Setter.Value></Setter><Setter Property='FrameworkElement.Tag'><Setter.Value>OperationTBP</Setter.Value></Setter></Style></Path.Style><dd:DesignerItem.DragThumbTemplate><ControlTemplate><Path><Path.Style><Style TargetType='Path'><Style.BasedOn><Style TargetType='Path'><Style.Resources><ResourceDictionary /></Style.Resources><Setter Property='Path.Data'><Setter.Value><StreamGeometry>M0,0L60,0 60,40 0,40z</StreamGeometry></Setter.Value></Setter><Setter Property='Shape.Fill'><Setter.Value><SolidColorBrush>#FFFFE4B5</SolidColorBrush></Setter.Value></Setter><Setter Property='Shape.Stretch'><Setter.Value><x:Static Member='Stretch.Fill' /></Setter.Value></Setter><Setter Property='UIElement.IsHitTestVisible'><Setter.Value><s:Boolean>False</s:Boolean></Setter.Value></Setter><Setter Property='UIElement.SnapsToDevicePixels'><Setter.Value><s:Boolean>True</s:Boolean></Setter.Value></Setter><Setter Property='FrameworkElement.Tag'><Setter.Value>OperationTBP</Setter.Value></Setter></Style></Style.BasedOn><Style.Resources><ResourceDictionary /></Style.Resources><Setter Property='UIElement.IsHitTestVisible'><Setter.Value><s:Boolean>True</s:Boolean></Setter.Value></Setter></Style></Path.Style></Path></ControlTemplate></dd:DesignerItem.DragThumbTemplate></Path>";
+            String xaml = "<Path ToolTip='Operation' xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml' xmlns:s='clr-namespace:System;assembly=mscorlib' xmlns:dd='clr-namespace:DiagramDesigner;assembly=DiagramDesigner'><Path.Style><Style TargetType='Path'><Style.Resources><ResourceDictionary /></Style.Resources><Setter Property='Path.Data'><Setter.Value><StreamGeometry>M0,0L60,0 60,40 0,40z</StreamGeometry></Setter.Value></Setter><Setter Property='Shape.Fill'><Setter.Value><SolidColorBrush>#FFFFE4B5</SolidColorBrush></Setter.Value></Setter><Setter Property='Shape.Stretch'><Setter.Value><x:Static Member='Stretch.Fill' /></Setter.Value></Setter><Setter Property='UIElement.IsHitTestVisible'><Setter.Value><s:Boolean>False</s:Boolean></Setter.Value></Setter><Setter Property='UIElement.SnapsToDevicePixels'><Setter.Value><s:Boolean>True</s:Boolean></Setter.Value></Setter><Setter Property='FrameworkElement.Tag'><Setter.Value>Operation</Setter.Value></Setter></Style></Path.Style><dd:DesignerItem.DragThumbTemplate><ControlTemplate><Path><Path.Style><Style TargetType='Path'><Style.BasedOn><Style TargetType='Path'><Style.Resources><ResourceDictionary /></Style.Resources><Setter Property='Path.Data'><Setter.Value><StreamGeometry>M0,0L60,0 60,40 0,40z</StreamGeometry></Setter.Value></Setter><Setter Property='Shape.Fill'><Setter.Value><SolidColorBrush>#FFFFE4B5</SolidColorBrush></Setter.Value></Setter><Setter Property='Shape.Stretch'><Setter.Value><x:Static Member='Stretch.Fill' /></Setter.Value></Setter><Setter Property='UIElement.IsHitTestVisible'><Setter.Value><s:Boolean>False</s:Boolean></Setter.Value></Setter><Setter Property='UIElement.SnapsToDevicePixels'><Setter.Value><s:Boolean>True</s:Boolean></Setter.Value></Setter><Setter Property='FrameworkElement.Tag'><Setter.Value>Operation</Setter.Value></Setter></Style></Style.BasedOn><Style.Resources><ResourceDictionary /></Style.Resources><Setter Property='UIElement.IsHitTestVisible'><Setter.Value><s:Boolean>True</s:Boolean></Setter.Value></Setter></Style></Path.Style></Path></ControlTemplate></dd:DesignerItem.DragThumbTemplate></Path>";
             StringReader stringReader = new StringReader(xaml);
             XmlReader xmlReader = XmlReader.Create(stringReader);
             Object content = XamlReader.Load(xmlReader);
@@ -83,7 +84,7 @@ namespace DiagramDesigner
 
         private object GetStartTBPContent()
         {
-            String xaml = "<Path ToolTip='Start' xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml' xmlns:s='clr-namespace:System;assembly=mscorlib' xmlns:dd='clr-namespace:DiagramDesigner;assembly=DiagramDesigner'><Path.Style><Style TargetType='Path'><Style.Resources><ResourceDictionary /></Style.Resources><Setter Property='Path.Data'><Setter.Value><StreamGeometry>M0,0L100,0 50,-100 0,0z</StreamGeometry></Setter.Value></Setter><Setter Property='Shape.Fill'><Setter.Value><SolidColorBrush>#FF9ACD32</SolidColorBrush></Setter.Value></Setter><Setter Property='Shape.Stretch'><Setter.Value><x:Static Member='Stretch.Fill' /></Setter.Value></Setter><Setter Property='UIElement.IsHitTestVisible'><Setter.Value><s:Boolean>False</s:Boolean></Setter.Value></Setter><Setter Property='UIElement.SnapsToDevicePixels'><Setter.Value><s:Boolean>True</s:Boolean></Setter.Value></Setter><Setter Property='FrameworkElement.Tag'><Setter.Value>StartTBP</Setter.Value></Setter></Style></Path.Style><dd:DesignerItem.DragThumbTemplate><ControlTemplate><Path><Path.Style><Style TargetType='Path'><Style.BasedOn><Style TargetType='Path'><Style.Resources><ResourceDictionary /></Style.Resources><Setter Property='Path.Data'><Setter.Value><StreamGeometry>M0,0L100,0 50,-100 0,0z</StreamGeometry></Setter.Value></Setter><Setter Property='Shape.Fill'><Setter.Value><SolidColorBrush>#FF9ACD32</SolidColorBrush></Setter.Value></Setter><Setter Property='Shape.Stretch'><Setter.Value><x:Static Member='Stretch.Fill' /></Setter.Value></Setter><Setter Property='UIElement.IsHitTestVisible'><Setter.Value><s:Boolean>False</s:Boolean></Setter.Value></Setter><Setter Property='UIElement.SnapsToDevicePixels'><Setter.Value><s:Boolean>True</s:Boolean></Setter.Value></Setter><Setter Property='FrameworkElement.Tag'><Setter.Value>StartTBP</Setter.Value></Setter></Style></Style.BasedOn><Style.Resources><ResourceDictionary /></Style.Resources><Setter Property='UIElement.IsHitTestVisible'><Setter.Value><s:Boolean>True</s:Boolean></Setter.Value></Setter></Style></Path.Style></Path></ControlTemplate></dd:DesignerItem.DragThumbTemplate></Path>";
+            String xaml = "<Path ToolTip='Start' xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml' xmlns:s='clr-namespace:System;assembly=mscorlib' xmlns:dd='clr-namespace:DiagramDesigner;assembly=DiagramDesigner'><Path.Style><Style TargetType='Path'><Style.Resources><ResourceDictionary /></Style.Resources><Setter Property='Path.Data'><Setter.Value><StreamGeometry>M0,0L100,0 50,-100 0,0z</StreamGeometry></Setter.Value></Setter><Setter Property='Shape.Fill'><Setter.Value><SolidColorBrush>#FF9ACD32</SolidColorBrush></Setter.Value></Setter><Setter Property='Shape.Stretch'><Setter.Value><x:Static Member='Stretch.Fill' /></Setter.Value></Setter><Setter Property='UIElement.IsHitTestVisible'><Setter.Value><s:Boolean>False</s:Boolean></Setter.Value></Setter><Setter Property='UIElement.SnapsToDevicePixels'><Setter.Value><s:Boolean>True</s:Boolean></Setter.Value></Setter><Setter Property='FrameworkElement.Tag'><Setter.Value>Start</Setter.Value></Setter></Style></Path.Style><dd:DesignerItem.DragThumbTemplate><ControlTemplate><Path><Path.Style><Style TargetType='Path'><Style.BasedOn><Style TargetType='Path'><Style.Resources><ResourceDictionary /></Style.Resources><Setter Property='Path.Data'><Setter.Value><StreamGeometry>M0,0L100,0 50,-100 0,0z</StreamGeometry></Setter.Value></Setter><Setter Property='Shape.Fill'><Setter.Value><SolidColorBrush>#FF9ACD32</SolidColorBrush></Setter.Value></Setter><Setter Property='Shape.Stretch'><Setter.Value><x:Static Member='Stretch.Fill' /></Setter.Value></Setter><Setter Property='UIElement.IsHitTestVisible'><Setter.Value><s:Boolean>False</s:Boolean></Setter.Value></Setter><Setter Property='UIElement.SnapsToDevicePixels'><Setter.Value><s:Boolean>True</s:Boolean></Setter.Value></Setter><Setter Property='FrameworkElement.Tag'><Setter.Value>Start</Setter.Value></Setter></Style></Style.BasedOn><Style.Resources><ResourceDictionary /></Style.Resources><Setter Property='UIElement.IsHitTestVisible'><Setter.Value><s:Boolean>True</s:Boolean></Setter.Value></Setter></Style></Path.Style></Path></ControlTemplate></dd:DesignerItem.DragThumbTemplate></Path>";
             StringReader stringReader = new StringReader(xaml);
             XmlReader xmlReader = XmlReader.Create(stringReader);
             Object content = XamlReader.Load(xmlReader);
@@ -92,7 +93,7 @@ namespace DiagramDesigner
 
         private object GetEndTBPContent()
         {
-            String xaml = "<Path ToolTip='End' xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml' xmlns:s='clr-namespace:System;assembly=mscorlib' xmlns:dd='clr-namespace:DiagramDesigner;assembly=DiagramDesigner'><Path.Style><Style TargetType='Path'><Style.Resources><ResourceDictionary /></Style.Resources><Setter Property='Path.Data'><Setter.Value><StreamGeometry>M0,0L100,0 50,100 0,0z</StreamGeometry></Setter.Value></Setter><Setter Property='Shape.Fill'><Setter.Value><SolidColorBrush>#FF6B8E23</SolidColorBrush></Setter.Value></Setter><Setter Property='Shape.Stretch'><Setter.Value><x:Static Member='Stretch.Fill' /></Setter.Value></Setter><Setter Property='UIElement.IsHitTestVisible'><Setter.Value><s:Boolean>False</s:Boolean></Setter.Value></Setter><Setter Property='UIElement.SnapsToDevicePixels'><Setter.Value><s:Boolean>True</s:Boolean></Setter.Value></Setter><Setter Property='FrameworkElement.Tag'><Setter.Value>EndTBP</Setter.Value></Setter></Style></Path.Style><dd:DesignerItem.DragThumbTemplate><ControlTemplate><Path><Path.Style><Style TargetType='Path'><Style.BasedOn><Style TargetType='Path'><Style.Resources><ResourceDictionary /></Style.Resources><Setter Property='Path.Data'><Setter.Value><StreamGeometry>M0,0L100,0 50,100 0,0z</StreamGeometry></Setter.Value></Setter><Setter Property='Shape.Fill'><Setter.Value><SolidColorBrush>#FF6B8E23</SolidColorBrush></Setter.Value></Setter><Setter Property='Shape.Stretch'><Setter.Value><x:Static Member='Stretch.Fill' /></Setter.Value></Setter><Setter Property='UIElement.IsHitTestVisible'><Setter.Value><s:Boolean>False</s:Boolean></Setter.Value></Setter><Setter Property='UIElement.SnapsToDevicePixels'><Setter.Value><s:Boolean>True</s:Boolean></Setter.Value></Setter><Setter Property='FrameworkElement.Tag'><Setter.Value>EndTBP</Setter.Value></Setter></Style></Style.BasedOn><Style.Resources><ResourceDictionary /></Style.Resources><Setter Property='UIElement.IsHitTestVisible'><Setter.Value><s:Boolean>True</s:Boolean></Setter.Value></Setter></Style></Path.Style></Path></ControlTemplate></dd:DesignerItem.DragThumbTemplate></Path>";
+            String xaml = "<Path ToolTip='End' xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml' xmlns:s='clr-namespace:System;assembly=mscorlib' xmlns:dd='clr-namespace:DiagramDesigner;assembly=DiagramDesigner'><Path.Style><Style TargetType='Path'><Style.Resources><ResourceDictionary /></Style.Resources><Setter Property='Path.Data'><Setter.Value><StreamGeometry>M0,0L100,0 50,100 0,0z</StreamGeometry></Setter.Value></Setter><Setter Property='Shape.Fill'><Setter.Value><SolidColorBrush>#FF6B8E23</SolidColorBrush></Setter.Value></Setter><Setter Property='Shape.Stretch'><Setter.Value><x:Static Member='Stretch.Fill' /></Setter.Value></Setter><Setter Property='UIElement.IsHitTestVisible'><Setter.Value><s:Boolean>False</s:Boolean></Setter.Value></Setter><Setter Property='UIElement.SnapsToDevicePixels'><Setter.Value><s:Boolean>True</s:Boolean></Setter.Value></Setter><Setter Property='FrameworkElement.Tag'><Setter.Value>End</Setter.Value></Setter></Style></Path.Style><dd:DesignerItem.DragThumbTemplate><ControlTemplate><Path><Path.Style><Style TargetType='Path'><Style.BasedOn><Style TargetType='Path'><Style.Resources><ResourceDictionary /></Style.Resources><Setter Property='Path.Data'><Setter.Value><StreamGeometry>M0,0L100,0 50,100 0,0z</StreamGeometry></Setter.Value></Setter><Setter Property='Shape.Fill'><Setter.Value><SolidColorBrush>#FF6B8E23</SolidColorBrush></Setter.Value></Setter><Setter Property='Shape.Stretch'><Setter.Value><x:Static Member='Stretch.Fill' /></Setter.Value></Setter><Setter Property='UIElement.IsHitTestVisible'><Setter.Value><s:Boolean>False</s:Boolean></Setter.Value></Setter><Setter Property='UIElement.SnapsToDevicePixels'><Setter.Value><s:Boolean>True</s:Boolean></Setter.Value></Setter><Setter Property='FrameworkElement.Tag'><Setter.Value>End</Setter.Value></Setter></Style></Style.BasedOn><Style.Resources><ResourceDictionary /></Style.Resources><Setter Property='UIElement.IsHitTestVisible'><Setter.Value><s:Boolean>True</s:Boolean></Setter.Value></Setter></Style></Path.Style></Path></ControlTemplate></dd:DesignerItem.DragThumbTemplate></Path>";
             StringReader stringReader = new StringReader(xaml);
             XmlReader xmlReader = XmlReader.Create(stringReader);
             Object content = XamlReader.Load(xmlReader);
@@ -147,7 +148,7 @@ namespace DiagramDesigner
             IEnumerable<Connection> connections = RBPDesigner.Children.OfType<Connection>();
 
             //add operations to items pool
-            List<DesignerItem> operationPool = designerItems.Where(p => p.BoundLogicItem.GetType() == typeof(OperationRBP)).ToList();
+            List<DesignerItem> operationPool = designerItems.Where(p => p.BoundLogicItem.GetType() == typeof(Operation)).ToList();
             if (operationPool.Count < 2)
             {
                 MessageBox.Show("Not enough operations for generation.");
@@ -172,7 +173,7 @@ namespace DiagramDesigner
             DesignerItem startTBP = this.CreateItem(0, GlobalOffsetX);
 
             startTBP.Content = this.GetStartTBPContent();
-            startTBP.BoundLogicItem = new StartTBP(Guid.NewGuid(), startTBP.ID);
+            startTBP.BoundLogicItem = new Start(startTBP.ID);
             startTBP.dispName = startTBP.BoundLogicItem.Name;
             startTBP.Tag = "StartTBP";
 
@@ -199,10 +200,10 @@ namespace DiagramDesigner
             DesignerItem dmp = this.CreateDMP(Canvas.GetTop(item) + 140, Canvas.GetLeft(item));
 
             dmp.Content = this.GetDMPContent();
-            dmp.BoundLogicItem = new DmpTBP(Guid.NewGuid(), dmp.ID, operationPool.Select(x => x.BoundLogicItem).ToList());
+            dmp.BoundLogicItem = new DMP(dmp.ID, operationPool.Select(x => x.BoundLogicItem).ToList());
             dmp.dispName = dmp.BoundLogicItem.Name;
 
-            TBPDesigner.Children.Add(dmp);
+            TBPDesigner.AddChild(dmp);
 
             TBPDesigner.SetConnectorDecoratorTemplate(dmp);
 
@@ -216,7 +217,7 @@ namespace DiagramDesigner
             DesignerItem end = this.CreateDMP(Canvas.GetTop(item) + 140, Canvas.GetLeft(item));
 
             end.Content = this.GetEndTBPContent();
-            end.BoundLogicItem = new EndTBP(Guid.NewGuid(), end.ID);
+            end.BoundLogicItem = new End(end.ID);
             end.dispName = end.BoundLogicItem.Name;
             end.Tag = "EndTBP";
 
@@ -266,12 +267,12 @@ namespace DiagramDesigner
                 DesignerItem operation = this.CreateItem(Canvas.GetTop(dmp) + 140, this.GlobalOffsetX);
 
                 operation.Content = this.GetOperationTBPContent();
-                operation.BoundLogicItem = new OperationTBP(operationPool[0].BoundLogicItem.ID, operation.ID);
+                operation.BoundLogicItem = new Operation(operationPool[0].BoundLogicItem.ID, operation.ID);
 
                 //move parameters from RBP operation to the created TBP
                 operation.BoundLogicItem.Name = operationPool[0].BoundLogicItem.Name;
                 operation.dispName = operation.BoundLogicItem.Name;
-                operation.Tag = "OperationTBP";
+                operation.Tag = "Operation";
 
                 TBPDesigner.Children.Add(operation);
                 TBPDesigner.SetConnectorDecoratorTemplate(operation);
@@ -284,7 +285,7 @@ namespace DiagramDesigner
                 {
                     DesignerItem error = this.CreateItem(Canvas.GetTop(dmp) + 140, this.GlobalOffsetX + 140 * (i + 1));
                     error.Content = this.GetErrorContent();
-                    error.BoundLogicItem = new GrossError(Guid.NewGuid(), error.ID);
+                    error.BoundLogicItem = new GrossError(error.ID);
                     error.Tag = "ErrorTBP";
 
                     TBPDesigner.Children.Add(error);
@@ -306,11 +307,122 @@ namespace DiagramDesigner
             //recoursive exit
             return;
         }
+
+        private void DrawScheme(List<DesignerItem> operationPool)
+        {
+            DesignerItem startTBP = this.CreateItem(0, GlobalOffsetX);
+            startTBP.Content = this.GetStartTBPContent();
+            startTBP.BoundLogicItem = new Start(startTBP.ID);
+            startTBP.dispName = startTBP.BoundLogicItem.Name;
+            startTBP.Tag = "StartTBP";
+
+            TBPDesigner.Children.Add(startTBP);
+            TBPDesigner.SetConnectorDecoratorTemplate(startTBP);
+
+            var root = startTBP;
+            var localPool = new List<DesignerItem>();
+            var lastOperation = new DesignerItem();
+
+            while (operationPool.Count > 0)
+            {
+                localPool.AddRange(operationPool);
+                localPool.RemoveAt(0);
+
+                DesignerItem dmp = this.AttachDMP(root, localPool);
+
+                //add the local root
+                DesignerItem operation = this.CreateItem(Canvas.GetTop(dmp) + 140, this.GlobalOffsetX);
+
+                operation.Content = this.GetOperationTBPContent();
+                operation.BoundLogicItem = new Operation(operationPool[0].BoundLogicItem.ID, operation.ID);
+
+                //move parameters from RBP operation to the created TBP
+                operation.BoundLogicItem.Name = operationPool[0].BoundLogicItem.Name;
+                operation.dispName = operation.BoundLogicItem.Name;
+                operation.Tag = "Operation";
+
+                TBPDesigner.Children.Add(operation);
+                TBPDesigner.SetConnectorDecoratorTemplate(operation);
+                this.DrawConnection(dmp.ID, operation.ID);
+                root = operation;
+
+                for (int j = 0; j < localPool.Count; j++)
+                {
+                    DesignerItem error = this.CreateItem(Canvas.GetTop(dmp) + 140, this.GlobalOffsetX + 140 * (j + 1));
+                    error.Content = this.GetErrorContent();
+                    error.BoundLogicItem = new GrossError(error.ID);
+                    error.Tag = "ErrorTBP";
+
+                    TBPDesigner.Children.Add(error);
+                    TBPDesigner.SetConnectorDecoratorTemplate(error);
+                    this.DrawConnection(dmp.ID, error.ID);
+                    AttachEndTBP(error);
+                }
+
+                lastOperation = root;
+                localPool.Clear();
+                operationPool.RemoveAt(0);
+            }
+            this.AttachEndTBP(root);
+
+            #region old
+            //bool branchHasErrors = false;
+            //if (operationPool.Count != 0)
+            //{
+            //    //add a dmp under the root
+            //    DesignerItem dmp = this.AttachDMP(root, operationPool);
+
+            //    //add the local root
+            //    DesignerItem operation = this.CreateItem(Canvas.GetTop(dmp) + 140, this.GlobalOffsetX);
+
+            //    operation.Content = this.GetOperationTBPContent();
+            //    operation.BoundLogicItem = new OperationTBP(operationPool[0].BoundLogicItem.ID, operation.ID);
+
+            //    //move parameters from RBP operation to the created TBP
+            //    operation.BoundLogicItem.Name = operationPool[0].BoundLogicItem.Name;
+            //    operation.dispName = operation.BoundLogicItem.Name;
+            //    operation.Tag = "OperationTBP";
+
+            //    TBPDesigner.Children.Add(operation);
+            //    TBPDesigner.SetConnectorDecoratorTemplate(operation);
+            //    this.DrawConnection(dmp.ID, operation.ID);
+
+            //    operationPool.RemoveAt(0);
+            //    if (operationPool.Count == 0)
+            //        branchHasErrors = true;
+            //    for (int i = 0; i < operationPool.Count; i++)
+            //    {
+            //        DesignerItem error = this.CreateItem(Canvas.GetTop(dmp) + 140, this.GlobalOffsetX + 140 * (i + 1));
+            //        error.Content = this.GetErrorContent();
+            //        error.BoundLogicItem = new GrossError(Guid.NewGuid(), error.ID);
+            //        error.Tag = "ErrorTBP";
+
+            //        TBPDesigner.Children.Add(error);
+            //        TBPDesigner.SetConnectorDecoratorTemplate(error);
+            //        this.DrawConnection(dmp.ID, error.ID);
+            //        AttachEndTBP(error);
+            //        branchHasErrors = true;
+            //    }
+
+            //    //recursive call
+            //    this.DrawBranch(operation, operationPool);
+
+            //}
+            ////add end if this operation is a leaf of the tree
+            //if (!branchHasErrors)
+            //    if (operationPool.Count == 0) this.AttachEndTBP(root);
+            ////inc offset for next branch
+            //this.GlobalOffsetX += 100;
+            ////recoursive exit
+            ////return;
+            #endregion
+        }
+
         private void DrawNonconditionalConnections()
         {
             //get decision making points
-            List<DesignerItem> DMPList = TBPDesigner.Children.OfType<DesignerItem>().Where(p => p.BoundLogicItem.GetType() == typeof(DmpTBP)).ToList();
-            List<DesignerItem> EndList = TBPDesigner.Children.OfType<DesignerItem>().Where(p => p.BoundLogicItem.GetType() == typeof(EndTBP)).ToList();
+            List<DesignerItem> DMPList = TBPDesigner.Children.OfType<DesignerItem>().Where(p => p.BoundLogicItem.GetType() == typeof(DMP)).ToList();
+            List<DesignerItem> EndList = TBPDesigner.Children.OfType<DesignerItem>().Where(p => p.BoundLogicItem.GetType() == typeof(End)).ToList();
             foreach (DesignerItem dmp in DMPList)
             {
                 foreach (DesignerItem end in EndList)
@@ -320,6 +432,213 @@ namespace DiagramDesigner
 
             }
 
+        }
+        #endregion
+        
+        //Generate ALS
+        #region Generate ALS
+        private Boolean CanvasIsTBP()
+        {
+            if (((Expander)App.Current.MainWindow.FindName("TBPtools")).IsExpanded == true)
+            {
+                return true;
+            }
+            else return false;
+        }
+        private DesignerItem SkipOperation(DesignerItem operation, IEnumerable<Connection> connections)
+        {
+            return connections.First(p => p.Source.ParentDesignerItem.ID == operation.ID).Sink.ParentDesignerItem;
+        }
+        
+        private DataTable FormALSMatrix(IEnumerable<DesignerItem> designerItems, IEnumerable<Connection> connections)
+        {
+            int DMPcount = designerItems.Count(p => p.BoundLogicItem.GetType() == typeof(DMP));
+            string[,] matrix = new string[DMPcount, DMPcount + 1];
+
+
+            Connection startconn = connections.First(p => p.Source.ParentDesignerItem.BoundLogicItem.GetType() == typeof(Start));
+            DesignerItem startDMP = startconn.Sink.ParentDesignerItem;
+            int counter = 0;
+            ((DMP)startDMP.BoundLogicItem).AlsID = counter;
+
+            List<DesignerItem> currentlevel = new List<DesignerItem>();
+            List<DesignerItem> nextlevel = new List<DesignerItem>();
+            currentlevel.Add(startDMP);
+
+            while (true)
+            {
+                foreach (DesignerItem di in currentlevel)
+                {
+                    foreach (Connection c in connections.Where(p => p.Source.ParentDesignerItem.ID == di.ID))
+                    {
+                        counter++;
+                        DesignerItem nextItem = SkipOperation(c.Sink.ParentDesignerItem, connections);
+
+                        if (nextItem.BoundLogicItem.GetType() == typeof(DMP))
+                        {
+                            ((DMP)nextItem.BoundLogicItem).AlsID = counter;
+                            nextlevel.Add(nextItem);
+                            matrix[((DMP)di.BoundLogicItem).AlsID, ((DMP)nextItem.BoundLogicItem).AlsID] = counter.ToString();
+                        }
+                        else
+                        {
+                            matrix[((DMP)di.BoundLogicItem).AlsID, DMPcount] = "K";
+                        }
+                    }
+                }
+                currentlevel.Clear();
+                foreach (DesignerItem d_nl in nextlevel)
+                {
+                    currentlevel.Add(d_nl);
+                }
+                nextlevel.Clear();
+                if (currentlevel.Count == 0) break;
+            }
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("DMP");
+            for (int i = 0; i < DMPcount; i++)
+            {
+                dt.Columns.Add("S" + i);
+            }
+            dt.Columns.Add("K");
+
+            for (int i = 0; i < DMPcount; i++)
+            {
+                DataRow dr = dt.NewRow();
+                for (int j = 0; j < DMPcount + 1; j++)
+                {
+                    dr[0] = "S" + i;
+                    dr[j + 1] = matrix[i, j];
+                }
+                dt.Rows.Add(dr);
+            }
+            return dt;
+
+        }
+
+        private string FormALSExpression(DataTable ALSMatrix)
+        {
+            string expr = "";
+            for (int j = 0; j < ALSMatrix.Rows.Count; j++)
+            {
+                expr += "↓" + j + "A" + j;
+                for (int i = 1; i < ALSMatrix.Columns.Count; i++)
+                {
+                    if (ALSMatrix.Rows[j][i].ToString() != "")
+                    {
+                        expr += "↑" + ALSMatrix.Rows[j][i].ToString();
+                    }
+
+                }
+            }
+            return expr;
+        }
+
+        DataTable CreateEmptyMatrix(List<DesignerItem> elements)
+        {
+            var table = new DataTable();
+            var operationNames = elements.Select(x => x.BoundLogicItem.Name).ToList();
+
+            table.Columns.Add(new DataColumn("ALS", typeof(string)));
+            table.Columns.AddRange(operationNames.Select(x => new DataColumn(x, typeof(string))).ToArray());
+            table.Columns.Add("K");
+
+            table.Rows.Add();
+            table.Rows[0][0] = "H";
+
+            for (int i = 1; i <= operationNames.Count(); i++)
+            {
+                table.Rows.Add();
+                table.Rows[i][0] = operationNames[i - 1];
+            }
+            return table;
+        }
+        string AddConditionalOperator(int i, bool positive)
+        {
+            return positive ? "P" + i : "Not P" + i;
+        }
+        string AddUnconditionalOperator()
+        {
+            return "ω";
+        }
+        string StartJumpOperator()
+        {
+            return "↑";
+        }
+        string EndJumpOperator()
+        {
+            return "↓";
+        }
+
+        private DataTable GenerateMatrix()
+        {
+            var elements = TBPDesigner.Children.OfType<DesignerItem>().Where(x => x.Tag.ToString() == "Operation").ToList();
+            var matrix = CreateEmptyMatrix(elements);
+
+            int n = elements.Count();
+            for (int i = 0; i < n; i++)
+            {
+                matrix.Rows[i][i + 1] = AddConditionalOperator(i + 1, true);
+                matrix.Rows[i][n + 1] = AddConditionalOperator(i + 1, false);
+            }
+            //matrix.Rows[n - 2][n - 2] = AddConditionalOperator(n, true);
+            matrix.Rows[n][n + 1] = AddUnconditionalOperator();
+
+            return matrix;
+        }
+
+        private string GenerateExpression(DataTable matrix)
+        {
+            string als = string.Empty;
+            int n = matrix.Columns.Count - 1;
+            for (int i = 0; i < n; i++)
+            {
+                als += matrix.Rows[i][0] + " ";
+                als += matrix.Rows[i][i + 1];
+                als += StartJumpOperator() + " ";
+            }
+            als += EndJumpOperator() + "K";
+
+            return als;
+        }
+
+
+        private void Generate_ALS(object sender, ExecutedRoutedEventArgs e)
+        {
+            //String ALS = "H";
+            //if (!CanvasIsTBP())
+            //{
+            //    MessageBox.Show("ALS expression can only be generated from TBP model.", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    e.Handled = true;
+            //    return;
+            //}
+            
+            //int counter = 1;
+            //IEnumerable<DesignerItem> designerItems = TBPDesigner.Children.OfType<DesignerItem>();
+            //IEnumerable<Connection> connections = TBPDesigner.Children.OfType<Connection>();
+
+            //DataTable dt = new DataTable();
+            //dt = FormALSMatrix(designerItems, connections);
+            //string expr = FormALSExpression(dt);
+
+            //foreach (DesignerItem dmp in designerItems.Where(p => p.BoundLogicItem.GetType() == typeof(DmpTBP)))
+            //{
+            //    if (counter !=1) ALS += "↓";
+            //    ALS += counter + "{" + dmp.BoundLogicItem.ID.ToString() + "}";
+            //    int internalCounter = 1;
+            //    foreach (Connection conn in connection.Where(p => p.Source.ParentDesignerItem.BoundLogicItem.ID == dmp.BoundLogicItem.ID))
+            //    {
+            //        ALS+= "P"+internalCounter+" "+"↑";
+            //    }
+            //    counter++;
+            //}
+            //MessageBox.Show(ALS);
+            var matrix = GenerateMatrix();
+            var expression = GenerateExpression(matrix);
+            ALSWindow als = new ALSWindow(matrix, expression);
+            als.Owner = App.Current.MainWindow;
+            als.Show();
         }
         #endregion
         

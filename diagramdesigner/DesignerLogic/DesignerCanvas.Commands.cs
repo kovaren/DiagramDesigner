@@ -16,6 +16,7 @@ using DiagramDesigner.LogicRBP;
 using DiagramDesigner.LogicTBP;
 using System.ComponentModel;
 using System.Data;
+using DiagramDesigner.BusinessLogic;
 
 namespace DiagramDesigner
 {
@@ -40,7 +41,6 @@ namespace DiagramDesigner
 
         public DesignerCanvas()
         {
-            this.CommandBindings.Add(new CommandBinding(DesignerCanvas.GenerateALS, Generate_ALS));
             this.CommandBindings.Add(new CommandBinding(ApplicationCommands.New, New_Executed));
             this.CommandBindings.Add(new CommandBinding(ApplicationCommands.Open, Open_Executed));
             this.CommandBindings.Add(new CommandBinding(ApplicationCommands.Save, Save_Executed));
@@ -69,148 +69,7 @@ namespace DiagramDesigner
             this.AllowDrop = true;
             Clipboard.Clear();
         }
-
-        //Generate ALS
-        #region Generate ALS
-        private Boolean CanvasIsTBP()
-        {
-            if (((Expander)App.Current.MainWindow.FindName("TBPtools")).IsExpanded == true)
-            {
-                return true;
-            }
-            else return false;
-        }
-        private DesignerItem SkipOperation (DesignerItem operation,IEnumerable<Connection> connections)
-        {
-            return connections.First(p => p.Source.ParentDesignerItem.ID == operation.ID).Sink.ParentDesignerItem;
-        }
-
         
-        private DataTable FormALSMatrix(IEnumerable<DesignerItem> designerItems, IEnumerable<Connection> connections)
-        {
-            int DMPcount = designerItems.Count(p => p.BoundLogicItem.GetType() == typeof(DmpTBP));
-            string[,] matrix = new string[DMPcount, DMPcount+1];
-
-
-            Connection startconn = connections.First(p => p.Source.ParentDesignerItem.BoundLogicItem.GetType() == typeof(StartTBP));
-            DesignerItem startDMP = startconn.Sink.ParentDesignerItem;
-            int counter = 0;
-            ((DmpTBP)startDMP.BoundLogicItem).AlsID = counter;
-
-            List<DesignerItem> currentlevel = new List<DesignerItem>();
-            List<DesignerItem> nextlevel = new List<DesignerItem>();
-            currentlevel.Add(startDMP);
-
-            while (true)
-            {
-                foreach (DesignerItem di in currentlevel)
-                {
-                    foreach (Connection c in connections.Where(p => p.Source.ParentDesignerItem.ID == di.ID))
-                    {
-                        counter++;
-                        DesignerItem nextItem = SkipOperation(c.Sink.ParentDesignerItem, connections);
-                        
-                        if (nextItem.BoundLogicItem.GetType() == typeof(DmpTBP))
-                        {
-                            ((DmpTBP)nextItem.BoundLogicItem).AlsID = counter;
-                            nextlevel.Add(nextItem);
-                            matrix[((DmpTBP)di.BoundLogicItem).AlsID, ((DmpTBP)nextItem.BoundLogicItem).AlsID] = counter.ToString();
-                        }
-                        else
-                        {
-                            matrix[((DmpTBP)di.BoundLogicItem).AlsID, DMPcount] = "K";
-                        }
-                    }
-                }
-                currentlevel.Clear();
-                foreach (DesignerItem d_nl in nextlevel)
-                {
-                    currentlevel.Add(d_nl);
-                }
-                nextlevel.Clear();
-                if (currentlevel.Count == 0) break;
-            }
-
-            DataTable dt = new DataTable();
-            dt.Columns.Add("DMP");
-            for(int i = 0; i<DMPcount; i++)
-            {
-                dt.Columns.Add("S" + i);
-            }
-            dt.Columns.Add("K");
-
-            for(int i = 0; i<DMPcount; i++)
-            {
-                DataRow dr = dt.NewRow();                
-                for(int j=0; j<DMPcount+1; j++)
-                {
-                    dr[0] = "S" + i;
-                    dr[j+1] = matrix[i, j];
-                }
-                dt.Rows.Add(dr);
-            }
-            return dt;
-            
-        }
-
-        private string FormALSExpression(DataTable ALSMatrix)
-        {
-            string expr = "";
-            for (int j = 0; j<ALSMatrix.Rows.Count;j++)
-            {
-                expr += "↓"+j+"A" + j;
-                for (int i=1; i<ALSMatrix.Columns.Count;i++)
-                {
-                    if (ALSMatrix.Rows[j][i].ToString() != "")
-	                {
-                        expr += "↑" + ALSMatrix.Rows[j][i].ToString();
-	                }
-                   
-                }
-            }
-            return expr;
-        }
-
-        private void Generate_ALS(object sender, ExecutedRoutedEventArgs e)
-        {
-            String ALS = "H";
-            if(!CanvasIsTBP())
-            {
-                MessageBox.Show("ALS expression can only be generated from TBP model.","Error!",MessageBoxButton.OK,MessageBoxImage.Error);
-                e.Handled = true;
-                return;
-            }
-
-            
-            int counter = 1;
-            IEnumerable<DesignerItem> designerItems = this.Children.OfType<DesignerItem>();
-            IEnumerable<Connection> connections = this.Children.OfType<Connection>();
-
-            DataTable dt = new DataTable();
-            dt = FormALSMatrix(designerItems, connections);
-            string expr = FormALSExpression(dt);
-
-            //foreach (DesignerItem dmp in designerItems.Where(p => p.BoundLogicItem.GetType() == typeof(DmpTBP)))
-            //{
-            //    if (counter !=1) ALS += "↓";
-            //    ALS += counter + "{" + dmp.BoundLogicItem.ID.ToString() + "}";
-            //    int internalCounter = 1;
-            //    foreach (Connection conn in connection.Where(p => p.Source.ParentDesignerItem.BoundLogicItem.ID == dmp.BoundLogicItem.ID))
-            //    {
-            //        ALS+= "P"+internalCounter+" "+"↑";
-            //    }
-            //    counter++;
-            //}
-            //MessageBox.Show(ALS);
-
-            ALSWindow als = new ALSWindow(dt, expr);
-            als.Owner = App.Current.MainWindow;
-            als.Show();
-
-          
-        }
-        #endregion
-
         //New Command
         #region New Command
 

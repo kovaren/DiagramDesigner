@@ -65,6 +65,14 @@ namespace DiagramDesigner.ResourcesLogic
             Document = new Document();
             Name = "Information";
         }
+        public InformationResource(Guid designerID)
+            : base(designerID)
+        {
+            Title = string.Empty;
+            CreationDate = DateTime.Now;
+            Document = new Document();
+            Name = "Information";
+        }
         public InformationResource(string title, DateTime creationDate, Document document)
             : base (title)
         {
@@ -81,7 +89,7 @@ namespace DiagramDesigner.ResourcesLogic
             if (resource.CreationDate == this.CreationDate
                 && resource.Document == this.Document
                 && resource.Title == this.Title)
-                return true;
+                return base.Equals(obj);
             return false;
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiagramDesigner.ResourcesLogic;
+using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,7 @@ namespace DiagramDesigner
     // Represents a selectable item in the Toolbox/>.
     public class ToolboxItem : ContentControl
     {
+        public DesignerItem DesignerItem = null;
         // caches the start point of the drag operation
         private Point? dragStartPoint = null;
 
@@ -54,6 +56,36 @@ namespace DiagramDesigner
                     double scale = 1.3;
                     dataObject.DesiredSize = new Size(panel.ItemWidth * scale, panel.ItemHeight * scale);
                 }
+
+                if (DesignerItem != null)
+                    dataObject.DesignerItem = DesignerItem;
+
+                #region Раннее
+                //var _dataObject = new object();
+                //object designerItem = this;
+                //if (designerItem is DesignerItem)
+                //{
+                //    _dataObject = designerItem;
+                //}
+                //else
+                //{
+                //    // XamlWriter.Save() has limitations in exactly what is serialized,
+                //    // see SDK documentation; short term solution only;
+                //    string xamlString = XamlWriter.Save(this.Content);
+                //    DragObject dataObject = new DragObject();
+                //    dataObject.Xaml = xamlString;
+                //    dataObject.Class = dataObject.GetClassByTag();
+                //    this.Tag = dataObject.Class; WrapPanel panel = VisualTreeHelper.GetParent(this) as WrapPanel;
+
+                //    if (panel != null)
+                //    {
+                //        // desired size for DesignerCanvas is the stretched Toolbox item size
+                //        double scale = 1.3;
+                //        dataObject.DesiredSize = new Size(panel.ItemWidth * scale, panel.ItemHeight * scale);
+                //    }
+                //    _dataObject = dataObject;
+                //}
+                #endregion
 
                 DragDrop.DoDragDrop(this, dataObject, DragDropEffects.Copy);
 
@@ -101,5 +133,7 @@ namespace DiagramDesigner
             }
             else return null;
         }
+
+        public DesignerItem DesignerItem = null;
     }
 }

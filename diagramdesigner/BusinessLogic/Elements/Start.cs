@@ -7,14 +7,12 @@ using System.Windows;
 
 namespace DiagramDesigner.LogicTBP
 {
-    public class StartTBP:BaseLogic
+    public class Start : BaseLogic
     {
-       public StartTBP(Guid id, Guid designerID)
+        public Start(Guid designerID)
+            : base(designerID)
         {
-            this.ID= id;
-            this.DesignerID= designerID;
-            this.Name = "StartTBP";
-            
+            Name = "Start";
         }
     }
 }

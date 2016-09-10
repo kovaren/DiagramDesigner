@@ -1,4 +1,5 @@
 ﻿using DiagramDesigner.LogicRBP;
+using DiagramDesigner.LogicTBP;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -50,7 +51,7 @@ namespace DiagramDesigner
                 DesignerCanvas designer = (DesignerCanvas)mw.FindName("RBPDesigner");
                 DesignerItem item = ((DesignerItem)designer.SelectionService.CurrentSelection[0]);
                 item.dispName = this.Name;
-                ((OperationRBP)item.BoundLogicItem).Name = this.Name;
+                ((Operation)item.BoundLogicItem).Name = this.Name;
             }
         }
     }

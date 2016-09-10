@@ -1,0 +1,209 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:DiagramDesigner"
+                    xmlns:c="clr-namespace:DiagramDesigner.Controls">
+
+    <!--BEGIN OF Information resource-->
+
+    <Style x:Key="InformationResource" TargetType="Path">
+        <Setter Property="Data" Value="M 0,0 H 60 V40 H 0 Z"/>
+        <Setter Property="Fill" Value="PaleTurquoise"/>
+        <Setter Property="Fill">
+            <Setter.Value>
+                <ImageBrush ImageSource='C:\Users\Vanya\Desktop\Новая модель ресурсов\DiagramDesigner\Resources\Images\ResourceImages\information.png'/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Stretch" Value="Fill"/>
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Tag" Value="Information"/>
+
+    </Style>
+
+
+    <Style x:Key="InformationResource_DragThumb" TargetType="Path" BasedOn="{StaticResource InformationResource}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+
+    </Style>
+    <!--END OF Information resource-->
+
+    <!--BEGIN OF Financial resource-->
+    <Style x:Key="FinancialResource" TargetType="Path">
+        <Setter Property="Data" Value="M 0,0 H 60 V40 H 0 Z"/>
+        <Setter Property="Fill">
+            <Setter.Value>
+                <ImageBrush ImageSource='C:\Users\Vanya\Desktop\Новая модель ресурсов\DiagramDesigner\Resources\Images\ResourceImages\finance.png'/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Stretch" Value="Fill"/>
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Tag" Value="Finance"/>
+
+    </Style>
+
+    <Style x:Key="FinancialResource_DragThumb" TargetType="Path" BasedOn="{StaticResource FinancialResource}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+
+    </Style>
+    <!--END OF Financial resource-->
+
+    <!--BEGGIN OF Labor Force-->
+    <Style x:Key="LaborForce" TargetType="Path">
+        <Setter Property="Data" Value="M 0,0 H 60 V40 H 0 Z"/>
+        <Setter Property="Fill">
+            <Setter.Value>
+                <ImageBrush ImageSource='C:\Users\Vanya\Desktop\Новая модель ресурсов\DiagramDesigner\Resources\Images\ResourceImages\labour.png'/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Stretch" Value="Fill"/>
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Tag" Value="Labour"/>
+
+    </Style>
+
+    <Style x:Key="LaborForce_DragThumb" TargetType="Path" BasedOn="{StaticResource LaborForce}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+
+    </Style>
+    <!--END OF Labor Force-->
+
+    <!--BEGGIN OF Equipment-->
+    <Style x:Key="Equipment" TargetType="Path">
+        <Setter Property="Data" Value="M 0,0 H 60 V40 H 0 Z"/>
+        <Setter Property="Fill">
+            <Setter.Value>
+                <ImageBrush ImageSource='C:\Users\Vanya\Desktop\Новая модель ресурсов\DiagramDesigner\Resources\Images\ResourceImages\equipment.png'/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Stretch" Value="Fill"/>
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Tag" Value="Equipment"/>
+
+    </Style>
+
+    <Style x:Key="Equipment_DragThumb" TargetType="Path" BasedOn="{StaticResource Equipment}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+
+    </Style>
+    <!--END OF Equipment -->
+
+    <!--BEGGIN OF Service-->
+    <Style x:Key="Service" TargetType="Path">
+        <Setter Property="Data" Value="M 0,0 H 60 V40 H 0 Z"/>
+        <Setter Property="Fill">
+            <Setter.Value>
+                <ImageBrush ImageSource='C:\Users\Vanya\Desktop\Новая модель ресурсов\DiagramDesigner\Resources\Images\ResourceImages\service.png'/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Stretch" Value="Fill"/>
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Tag" Value="Service"/>
+
+    </Style>
+
+    <Style x:Key="Service_DragThumb" TargetType="Path" BasedOn="{StaticResource Service}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+
+    </Style>
+    <!--END OF Service -->
+
+    <!--BEGGIN OF Product-->
+    <Style x:Key="Product" TargetType="Path">
+        <Setter Property="Data" Value="M 0,0 H 60 V40 H 0 Z"/>
+        <Setter Property="Fill">
+            <Setter.Value>
+                <ImageBrush ImageSource='C:\Users\Vanya\Desktop\Новая модель ресурсов\DiagramDesigner\Resources\Images\ResourceImages\product.png'/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Stretch" Value="Fill"/>
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Tag" Value="Product"/>
+
+    </Style>
+
+    <Style x:Key="Good_DragThumb" TargetType="Path" BasedOn="{StaticResource Product}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+
+    </Style>
+    <!--END OF Product -->
+
+    <!--BEGGIN OF Business partner-->
+    <Style x:Key="BusinessPartner" TargetType="Path">
+        <Setter Property="Data" Value="M 0,0 H 60 V40 H 0 Z"/>
+        <Setter Property="Fill">
+            <Setter.Value>
+                <ImageBrush ImageSource='C:\Users\Vanya\Desktop\Новая модель ресурсов\DiagramDesigner\Resources\Images\ResourceImages\Partner.png'/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Stretch" Value="Fill"/>
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Tag" Value="BusinessPartner"/>
+
+    </Style>
+
+    <Style x:Key="BusinessPartner_DragThumb" TargetType="Path" BasedOn="{StaticResource BusinessPartner}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+
+    </Style>
+    <!--END OF Business partner -->
+
+    <s:Toolbox x:Key="ResourceStencils" ItemSize="60,60">
+        <ItemsControl.Items>
+            <Path Style="{StaticResource InformationResource}" ToolTip="InformationResource">
+                <s:DesignerItem.DragThumbTemplate>
+                    <ControlTemplate>
+                        <Path Style="{StaticResource InformationResource_DragThumb}"/>
+                    </ControlTemplate>
+                </s:DesignerItem.DragThumbTemplate>
+            </Path>
+            <Path Style="{StaticResource FinancialResource}" ToolTip="FinancialResource">
+                <s:DesignerItem.DragThumbTemplate>
+                    <ControlTemplate>
+                        <Path Style="{StaticResource FinancialResource_DragThumb}"/>
+                    </ControlTemplate>
+                </s:DesignerItem.DragThumbTemplate>
+            </Path>
+            <Path Style="{StaticResource LaborForce}" ToolTip="LaborForce">
+                <s:DesignerItem.DragThumbTemplate>
+                    <ControlTemplate>
+                        <Path Style="{StaticResource LaborForce_DragThumb}"/>
+                    </ControlTemplate>
+                </s:DesignerItem.DragThumbTemplate>
+            </Path>
+            <Path Style="{StaticResource Equipment}" ToolTip="Equipment">
+                <s:DesignerItem.DragThumbTemplate>
+                    <ControlTemplate>
+                        <Path Style="{StaticResource Equipment_DragThumb}"/>
+                    </ControlTemplate>
+                </s:DesignerItem.DragThumbTemplate>
+            </Path>
+            <Path Style="{StaticResource Service}" ToolTip="Service">
+                <s:DesignerItem.DragThumbTemplate>
+                    <ControlTemplate>
+                        <Path Style="{StaticResource Service_DragThumb}"/>
+                    </ControlTemplate>
+                </s:DesignerItem.DragThumbTemplate>
+            </Path>
+            <Path Style="{StaticResource Product}" ToolTip="Product">
+                <s:DesignerItem.DragThumbTemplate>
+                    <ControlTemplate>
+                        <Path Style="{StaticResource Good_DragThumb}"/>
+                    </ControlTemplate>
+                </s:DesignerItem.DragThumbTemplate>
+            </Path>
+            <Path Style="{StaticResource BusinessPartner}" ToolTip="BusinessPartner">
+                <s:DesignerItem.DragThumbTemplate>
+                    <ControlTemplate>
+                        <Path Style="{StaticResource BusinessPartner_DragThumb}"/>
+                    </ControlTemplate>
+                </s:DesignerItem.DragThumbTemplate>
+            </Path>
+        </ItemsControl.Items>
+    </s:Toolbox>
+</ResourceDictionary>
